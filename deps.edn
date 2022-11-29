@@ -1,33 +1,35 @@
 
 {:paths ["resources" "source-code"]
 
- :deps {
+ :deps  {com.github.seancorfield/depstar                 {:mvn/version "2.0.211"}
+         org.clojure/clojure                             {:mvn/version "1.10.1"}
+         org.clojure/clojurescript                       {:mvn/version "1.10.891"}
+         thheller/shadow-cljs                            {:mvn/version "2.18.0"}
 
-        com.github.seancorfield/depstar                 {:mvn/version "2.0.211"}
-        thheller/shadow-cljs                            {:mvn/version "2.18.0"}
-
-        bithandshake/cljc-fruits                        {:git/url "https://github.com/bithandshake/cljc-fruits"
-                                                         :sha     "81654bafcdf7c11790e52eb93889c05ff5157177"}
-        bithandshake/io-api                             {:git/url "https://github.com/bithandshake/io-api"
-                                                         :sha     "7b471dfd36cc54b2dc7cc2a73bd4b74e6b824cd4"}}
+         bithandshake/cljc-fruits                        {:git/url "https://github.com/bithandshake/cljc-fruits"
+                                                          :sha     "81654bafcdf7c11790e52eb93889c05ff5157177"}
+         bithandshake/io-api                             {:git/url "https://github.com/bithandshake/io-api"
+                                                          :sha     "7b471dfd36cc54b2dc7cc2a73bd4b74e6b824cd4"}}
+         ; + project-compiler
+         ; + project-kit
 
  :aliases
  {:site.dev  {:exec-fn    boot-loader.project-template.backend.main/dev
-              :exec-args  {:shadow-build :site
+              :exec-args  {:shadow-build :site.dev
                            :port         3000}
               :jvm-opts   ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}"]
-              :extra-deps {}}
+              :extra-deps {monotech-hq/developer-tools {:git/url "https://github.com/monotech-hq/developer-tools"
+                                                        :sha     "af417eba2283361cb3efe574ab2e3c8c0ece65b7"}}}
 
   :app.dev    {:exec-fn    boot-loader.project-template.backend.main/dev
-               :exec-args  {:shadow-build :app
+               :exec-args  {:shadow-build :app.dev
                             :port         3000}
                :jvm-opts   ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}"]
-               :extra-deps {}}
+               :extra-deps {monotech-hq/developer-tools {:git/url "https://github.com/monotech-hq/developer-tools"
+                                                         :sha     "af417eba2283361cb3efe574ab2e3c8c0ece65b7"}}}
 
   :prod {:extra-deps {}
          :exec-fn    compiler.api/compile-app!
-         :exec-args {:java-config {:aot true
-                                   :jar "mono.jar"
-                                   :jar-type :uber
+         :exec-args {:java-config {:aot true :jar-type :uber
                                    :main-class boot-loader.project-template.backend.main}
-                     :js-builds [:site-ready :app-ready]}}}}
+                     :js-builds [:site.prod :app.prod]}}}}
