@@ -1,2 +1,3 @@
+
 # project-template
-Clojure/ClojureScript webapplication template based on the Monoset kit-framework 
+Our Clojure/ClojureScript web application template based on the Monoset kit-framework
