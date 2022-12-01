@@ -16,3 +16,8 @@ pom.xml.asc
 
 # MacOS files
 .DS_Store
+
+# Project files
+.shadow-cljs
+node_modules
+resources/public/js/core

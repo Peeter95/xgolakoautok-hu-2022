@@ -1,0 +1,35 @@
+
+; To apply the changes of this file you must restart the application!
+;
+; @edn (map) server-config
+;  {:core-js-dir (string)
+;   :database-host (string)}
+;   :database-name (string)
+;   :database-port (integer)
+;   :default-port (integer)
+;   :max-body (B)
+;    Important for projects which should able to upload at least 1GB ...
+;   :max-upload-size (B)
+;   :resources (maps in vector)
+;    [{:path (string)
+;      :root (string)}]
+;   :storage-capacity (B)}
+
+{; JS details
+ :core-js-dir "resources/public/js/core"
+ ; Database details
+ :database-host "127.0.0.1"
+ :database-name "my-project"
+ :database-port 27017
+
+ ; Resources details
+ :resources [{:path "/" :root "/my-project"}
+             {:path "/" :root "/public"}]
+
+ ; Storage details
+ :max-upload-size   1000000000
+ :storage-capacity 15000000000
+
+ ; ...
+ :default-port 3000
+ :max-body     1073741824}
