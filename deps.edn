@@ -1,25 +1,22 @@
 
 {:paths ["resources" "source-code"]
-
- :deps  {
-
-         monotech-hq/project-compiler {:git/url "git@github.com:monotech-hq/project-compiler"
+ :deps  {monotech-hq/project-compiler {:git/url "git@github.com:monotech-hq/project-compiler"
                                        :sha     "1c8e1750b39f15f6c55942db7a88f3a54d8bd775"}
          monotech-hq/project-kit      {:git/url "git@github.com:monotech-hq/project-kit"
-                                       :sha     "e6009904c50be002b1db1d7192092e1551cb675f"}}
+                                       :sha     "e0cb4b8bbbf8a330b7ee8a2366b5062f94c485d3"}}
 
  :aliases
  {:site.dev  {:exec-fn    boot-loader.backend.main/dev
               :exec-args  {:port 3000 :shadow-build :site.dev}
               :jvm-opts   ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}"]
-              :extra-deps {}};monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
-                            ;                              :sha     "5630efbec278479cf593f3f44721a55a35c651bc"}}
+              :extra-deps {monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
+                                                          :sha     "e2c23960168844bab0659dd2367d210e9bffa40b"}}}
 
   :app.dev    {:exec-fn    boot-loader.backend.main/dev
                :exec-args  {:port 3000 :shadow-build :app.dev}
                :jvm-opts   ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}"]
-               :extra-deps {}};monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
-                            ;                               :sha     "5630efbec278479cf593f3f44721a55a35c651bc"}}
+               :extra-deps {monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
+                                                           :sha     "e2c23960168844bab0659dd2367d210e9bffa40b"}}}
 
   :prod {:extra-deps {}
          :exec-fn   compiler.api/compile-app!

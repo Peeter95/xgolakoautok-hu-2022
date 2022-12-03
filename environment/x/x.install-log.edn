@@ -1,3 +1,0 @@
-
-{:x.core.build-handler.installer/installer {:result false :installed-at "2022-12-01T04:10:25.973Z"} 
- :x.user.installer/installer {:result true :installed-at "2022-12-01T01:36:51.871Z"}}

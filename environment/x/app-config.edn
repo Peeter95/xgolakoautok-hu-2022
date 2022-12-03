@@ -1,0 +1,60 @@
+
+; To apply the changes of this file you must restart the x5 server!
+;
+; @edn (map) app-config
+; {:app-domain (string)
+;  :app-home (string)
+;  :app-languages (keywords in vector)
+;  :app-locale (keyword)
+;  :app-themes (maps in vector)
+;   [{:name (metamorphic-content)
+;     :id (keyword)}]
+;  :app-title (string)
+;  :author (string)
+;  :css-paths (maps in vector)(opt)
+;   [{:js-build (keyword)(opt)
+;      Serving of a CSS file can be assigned to a specific JS build.
+;     :route-template (string)(opt)
+;      Serving of a CSS file can be assigned to a specific route.
+;     :uri (string)}]
+;  :favicon-paths (maps in vector)(opt)
+;   [{:js-build (string)(opt)
+;      Serving of a favicon file can be assigned to a specific JS build.
+;     :route-template (string)(opt)
+;      Serving of a favicon file can be assigned to a specific route.
+;     :uri (string)}]
+;  :plugin-js-paths (maps in vector)(opt)
+;   [{:js-build (string)(opt)
+;      Serving of a JS file can be assigned to a specific JS build.
+;     :route-template (string)(opt)
+;      Serving of a JS file can be assigned to a specific route.
+;     :uri (string)}]
+;  :theme-color (string)(opt)
+;   Theme color must be hex!
+;   https://developer.mozilla.org/en-US/docs/Web/HTML/Element/meta/name/theme-color
+;
+; @usage
+; {:app-home      "/"
+;  :app-home      "/app"
+;  :app-themes    [{:id :my-theme :name "My theme"
+;                  {:id :light    :name :light-theme}
+;  :plugin-js-paths [{:uri "/js/plugins/external-plugin.js"
+;                    {:uri "https://external-plugin.com/plugin.js"})
+
+{:app-themes
+ [{:id :light :name :light-theme}
+  {:id :dark :name :dark-theme}]
+ :app-languages [:en :hu]
+ :app-home "/app"
+ :theme-color "#111111"
+ :plugin-js-paths []
+ :app-locale :hu
+ :app-title "Monotech.hu"
+ :author "Monotech.hu"
+ :app-domain "https://my-app.com"
+ :favicon-paths
+ [{:uri "/favicon/blue/favicon-16.png" :size "16x16"}
+  {:uri "/favicon/blue/favicon-32.png" :size "32x32"}
+  {:uri "/favicon/blue/favicon-96.png" :size "96x96"}
+  {:uri "/favicon/blue/favicon-144.png" :size "144x144"}]
+ :css-paths [{:uri "/site/css/site.css" :js-build :site}]}

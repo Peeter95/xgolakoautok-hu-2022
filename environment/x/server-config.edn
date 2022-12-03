@@ -1,0 +1,26 @@
+
+; To apply the changes of this file you must restart the x5 server!
+;
+; @edn (map) server-config
+;  {:core-js-dir (string)
+;   :database-host (string)}
+;   :database-name (string)
+;   :database-port (integer)
+;   :default-port (integer)
+;   :max-body (B)
+;    Important for projects which should able to upload at least 1GB ...
+;   :max-upload-size (B)
+;   :resources (maps in vector)
+;    [{:path (string)
+;      :root (string)}]
+;   :storage-capacity (B)}
+
+{:storage-capacity 15000000000
+ :database-name "x5"
+ :database-port 27017
+ :default-port 3000
+ :max-upload-size 1000000000
+ :database-host "127.0.0.1"
+ :resources [{:path "/" :root "/sample"} {:path "/" :root "/public"}]
+ :core-js-dir "resources/public/js/core"
+ :max-body 1000000000}

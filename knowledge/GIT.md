@@ -13,7 +13,7 @@ Interactive rebase -> Drop
 
 ### Why the Git manager ask you for a username and password?
 
-That's because you cloned the repository with https authentication:
+That's because you cloned the repository with HTTPS authentication:
 `https://github.com/username/repository.git`
 
 So instead of using this method you have to clone with SSH authentication:

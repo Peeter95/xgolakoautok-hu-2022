@@ -21,3 +21,7 @@ pom.xml.asc
 .shadow-cljs
 node_modules
 resources/public/js/core
+
+# x.core
+resources/public/x/build-version.edn
+environment/x/install-log.edn
