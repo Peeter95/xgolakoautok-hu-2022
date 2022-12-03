@@ -1,0 +1,144 @@
+
+/******************************************************************************/
+/***** Website *****/
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;1,100;1,200&display=swap');
+
+#mt {
+  background-color: #f4f7f6;
+}
+
+/***** Website *****/
+/******************************************************************************/
+
+
+
+/******************************************************************************/
+/***** Navbar *****/
+
+#mt-navbar {
+  height: 75px;
+  padding: 0 24px;
+  transition: background-color .2s;
+}
+
+#mt-navbar[data-scrolled="false"] {
+  background-color: hsl(0deg 0% 100% / 0%);
+}
+
+#mt-navbar[data-scrolled="true"] {
+  background-color: hsl(0deg 0% 100% / 80%);
+}
+
+#mt-navbar--menu-items {
+  gap: 50px;
+}
+
+.mt-navbar--menu-item {
+  color: #333;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+#mt-navbar .mt-effect--underline::before {
+  bottom: 0px;
+  --underline-color: #333;
+}
+
+/***** Navbar *****/
+/******************************************************************************/
+
+
+
+/******************************************************************************/
+/***** Sidebar *****/
+
+#mt-sidebar--content {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+#mt-sidebar--menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.mt-sidebar--menu-item {
+  color: #333;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#mt-sidebar .mt-effect--underline::before {
+  --underline-color: #333;
+  bottom: 0px;
+}
+
+/***** Sidebar *****/
+/******************************************************************************/
+
+
+
+/******************************************************************************/
+/***** Section *****/
+
+.mt-section-body {
+  height: 100%;
+}
+
+.mt-section-title {
+
+}
+
+/***** Section *****/
+/******************************************************************************/
+
+
+
+/******************************************************************************/
+/***** Hero *****/
+
+#mt-hero {
+  background-image: linear-gradient(45deg, #99acad, transparent);
+  height: 95vh;
+}
+
+/***** Hero *****/
+/******************************************************************************/
+
+
+
+/******************************************************************************/
+/***** Scheme *****/
+
+#mt-scheme .mt-section-body {
+  background-color: #eef4f3;
+  display: flex;
+  justify-content: center;
+  padding: 10vh;
+}
+
+/***** Scheme *****/
+/******************************************************************************/
+
+
+
+/******************************************************************************/
+/***** Contacts *****/
+
+#mt-contacts {
+  min-height: 50vh;
+}
+
+/***** Contacts *****/
+/******************************************************************************/

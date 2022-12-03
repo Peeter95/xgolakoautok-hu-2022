@@ -25,3 +25,8 @@ resources/public/js/core
 # x.core
 resources/public/x/build-version.edn
 environment/x/install-log.edn
+
+# x.media
+environment/media/thumbnails/*
+environment/media/storage/*
+environment/media/temp/*

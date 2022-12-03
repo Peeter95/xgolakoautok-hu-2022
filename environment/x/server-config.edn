@@ -1,5 +1,5 @@
 
-; To apply the changes of this file you must restart the x5 server!
+; To apply the changes of this file you must restart the application!
 ;
 ; @edn (map) server-config
 ;  {:core-js-dir (string)

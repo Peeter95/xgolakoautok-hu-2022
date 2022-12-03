@@ -1,10 +1,11 @@
 
 (ns boot-loader.backend.main
-    (:require [project-developer.api]
-              [pattern.api       :as p]
+    (:require [pattern.api       :as p]
               [shadow-cljs.api   :as shadow-cljs]
               [x.boot-loader.api :as x.boot-loader]
-              [x.core.api        :as x.core])
+              [x.core.api        :as x.core]
+              ; *
+              [boot-loader.sample.backend.main])
     (:gen-class))
 
 ;; ----------------------------------------------------------------------------
