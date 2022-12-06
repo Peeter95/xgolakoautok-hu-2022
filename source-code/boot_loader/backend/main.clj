@@ -26,14 +26,7 @@
               [app.storage.backend.api]
               [app.user.backend.api]
               [app.views.backend.api]
-              [app.website-config.backend.api]
-              [app.website-contacts.backend.api]
-              [app.website-menus.backend.api]
-              [app.website-pages.backend.api]
-              [site.website-config.backend.api]
-              [site.website-contacts.backend.api]
-              [site.website-impressum.backend.api]
-              [site.website-menus.backend.api]
+              [site.website-pages.backend.api]
 
               ; sample
               [app.sample.backend.api]
