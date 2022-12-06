@@ -21,21 +21,3 @@ pom.xml.asc
 .shadow-cljs
 node_modules
 resources/public/js/core
-
-# x.core
-resources/public/x/build-version.edn
-environment/x/install-log.edn
-
-# x.media
-environment/media/thumbnails/*
-environment/media/storage/*
-environment/media/temp/*
-
-# app.website-config
-environment/project/website-config.edn
-
-# app.website-contacts
-environment/project/website-contacts.edn
-
-# app.website-impressum
-environment/project/website-impressum.edn
