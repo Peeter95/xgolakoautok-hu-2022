@@ -40,6 +40,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn wrapper
+  ; @param (symbol) ui-structure
   [ui-structure]
   [:div#mt
     [ui-structure]
@@ -47,5 +48,6 @@
     [sidebar]])
 
 (defn view
+  ; @param (symbol) ui-structure
   [ui-structure]
   [wrapper ui-structure])

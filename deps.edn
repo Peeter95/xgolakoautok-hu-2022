@@ -1,24 +1,24 @@
 
 {:paths ["resources" "source-code"]
- :deps  {monotech-hq/project-compiler {:git/url "git@github.com:monotech-hq/project-compiler"
-                                       :sha     "1c8e1750b39f15f6c55942db7a88f3a54d8bd775"}
-         monotech-hq/project-kit      {:git/url "git@github.com:monotech-hq/project-kit"
-                                       :sha     "6c24958d1c602be67283256c2eb64ec82a7f4ab5"}}
+ :deps  {monotech-hq/project-compiler  {:git/url "git@github.com:monotech-hq/project-compiler"
+                                        :sha     "75514ed8e4c533b53802f3ce99794259f98bb47c"}
+         monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
+                                        :sha     "e4f4e0627714a9ac9ced9822ff7c88d74436d12e"}
+         monotech-hq/project-kit       {:git/url "git@github.com:monotech-hq/project-kit"
+                                        :sha     "ea312bd90f24c6292b2e39946f264c3be4c6f1c5"}}
 
  :aliases
  {:site.dev  {:exec-fn    boot-loader.backend.main/dev
               :exec-args  {:port 3000 :shadow-build :site.dev}
               :jvm-opts   ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}"]
-              :extra-deps {monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
-                                                          :sha     "e2c23960168844bab0659dd2367d210e9bffa40b"}}}
+              :extra-deps {}}
 
-  :app.dev    {:exec-fn    boot-loader.backend.main/dev
-               :exec-args  {:port 3000 :shadow-build :app.dev}
-               :jvm-opts   ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}"]
-               :extra-deps {monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
-                                                           :sha     "e2c23960168844bab0659dd2367d210e9bffa40b"}}}
+  :app.dev   {:exec-fn    boot-loader.backend.main/dev
+              :exec-args  {:port 3000 :shadow-build :app.dev}
+              :jvm-opts   ["-Dclojure.server.repl={:port,5555,:accept,clojure.core.server/repl}"]
+              :extra-deps {}}
 
   :prod {:extra-deps {}
          :exec-fn   compiler.api/compile-app!
-         :exec-args {:java-config {:aot true :jar-type :uber :main-class boot-loader.backend.main}
-                     :js-builds   [:site.prod :app.prod]}}}}
+         :exec-args {:java-config   {:aot true :jar-type :uber :main-class boot-loader.backend.main}
+                     :shadow-builds [:site.prod :app.prod]}}}}

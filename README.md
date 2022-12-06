@@ -6,7 +6,14 @@
 ### Overview
 
 The <strong>project-template</strong> is our Clojure/ClojureScript web application
-template based on the Monoset kit-framework & the x5 web application engine.
+template based on the Monoset kit-framework, the x5 web application engine
+and the project-kit web application module-kit.
+
+### How to use this repository as a template?
+
+When you create a new repository on `github.com` and you are added to this
+template as a contributor, you can find it in the 'Repository template'
+select on the top of the the `Create a new repository` page.
 
 ### How to clone this repository from GitHub?
 

@@ -11,14 +11,14 @@ git mv submodules/submodule-from submodules/submodule-to
 
 Interactive rebase -> Drop
 
-### Why the Git manager ask you for a username and password?
+### Why the Git manager ask you for the username and password?
 
 That's because you cloned the repository with HTTPS authentication:
 `https://github.com/username/repository.git`
 
-So instead of using this method you have to clone with SSH authentication:
+So instead of using the HTTPS method you have to clone with SSH authentication:
 `git@github.com:username/repository.git`
 
-If you added a submodule with https authentication, it might be the easiest
+If you added a submodule with HTTPS authentication, it might be the easiest
 way to change the authentication method is to remove the submodule and add
 it again to you project in your Git manager application.

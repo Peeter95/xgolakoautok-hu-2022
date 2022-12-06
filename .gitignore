@@ -31,11 +31,6 @@ environment/media/thumbnails/*
 environment/media/storage/*
 environment/media/temp/*
 
-# app.storage
-!environment/media/storage/sample.png
-!environment/media/thumbnails/sample.png
-!environment/media/thumbnails/default.png
-
 # app.website-config
 environment/project/website-config.edn
 

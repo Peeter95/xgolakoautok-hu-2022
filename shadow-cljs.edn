@@ -27,4 +27,4 @@
                :asset-path        "/js/core"
                :output-dir        "resources/public/js/core"
                :optimizations     :advanced
-               :target           :browser}}}
+               :target            :browser}}}

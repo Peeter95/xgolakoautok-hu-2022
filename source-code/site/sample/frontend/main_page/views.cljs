@@ -9,6 +9,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn view
+  ; @param (keyword) surface-id
   []
   [:div#mt-main-page
     [hero/view]
