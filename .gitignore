@@ -30,3 +30,17 @@ environment/x/install-log.edn
 environment/media/thumbnails/*
 environment/media/storage/*
 environment/media/temp/*
+
+# app.storage
+!environment/media/storage/sample.png
+!environment/media/thumbnails/sample.png
+!environment/media/thumbnails/default.png
+
+# app.website-config
+environment/project/website-config.edn
+
+# app.website-contacts
+environment/project/website-contacts.edn
+
+# app.website-impressum
+environment/project/website-impressum.edn

@@ -12,5 +12,5 @@
                                  [:x.router/set-default-handler! :method-not-allowed      default-handlers/METHOD-NOT-ALLOWED]
                                  [:x.router/set-default-handler! :no-handler-defined      default-handlers/NO-HANDLER-DEFINED]
                                  [:x.router/set-default-handler! :not-acceptable          default-handlers/NOT-ACCEPTABLE]
-                                 [:x.router/set-default-handler! :not-found               default-handlers/NOT-FOUND]
-                                 [:x.router/add-routes!                                   default-routes/ROUTES]]}})
+                                 [:x.router/set-default-handler! :not-found               default-handlers/NOT-FOUND]]}
+   :on-server-boot {:dispatch-n [[:x.router/add-routes!                                   default-routes/ROUTES]]}})

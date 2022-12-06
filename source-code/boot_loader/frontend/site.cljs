@@ -1,19 +1,26 @@
 
 (ns boot-loader.frontend.site
-    (:require ;[project-developer.api :as project-developer]
-              [x.boot-loader.api     :as x.boot-loader]))
+    (:require ; monotech-hq/project-developer
+              [project-developer.api :as project-developer]
+
+              ; monotech-hq/project-kit
+              [app.contents.frontend.api]
+              [app.views.frontend.api]
+
+              ; monotech-hq/x5
+              [x.boot-loader.api :as x.boot-loader]
+
+              ; sample
+              [site.sample.frontend.api :as sample]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
 
 (defn- site-structure
   ; @param (symbol) ui-structure
-  ;
-  ; @usage
-  ;  [site-structure #'my-ui-structure]
   [ui-structure]
-  [:<> [:div "Hello"]])
-       ;[project-developer/magic-button]])
+  [:<> [sample/wrapper ui-structure]
+       [project-developer/magic-button]])
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

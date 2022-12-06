@@ -1,11 +1,44 @@
 
 (ns boot-loader.backend.main
-    (:require [pattern.api       :as p]
+    (:require [project.router.backend.api]
+              [pattern.api       :as p]
               [shadow-cljs.api   :as shadow-cljs]
               [x.boot-loader.api :as x.boot-loader]
               [x.core.api        :as x.core]
-              ; *
-              [boot-loader.sample.backend.main])
+
+              ; monotech-hq/monoset
+              [elements.api]
+              [fonts.api]
+              [forms.api]
+              [icons.api]
+              [layouts.popup-a.api]
+              [layouts.surface-a.api]
+
+              ; monotech-hq/project-developer
+              [project-developer.api]
+
+              ; monotech-hq/project-kit
+              [app.common.backend.api]
+              [app.common.iso.api]
+              [app.contents.backend.api]
+              [app.home.backend.api]
+              [app.settings.backend.api]
+              [app.storage.backend.api]
+              [app.user.backend.api]
+              [app.views.backend.api]
+              [app.website-config.backend.api]
+              [app.website-contacts.backend.api]
+              [app.website-menus.backend.api]
+              [app.website-pages.backend.api]
+              [site.website-config.backend.api]
+              [site.website-contacts.backend.api]
+              [site.website-impressum.backend.api]
+              [site.website-menus.backend.api]
+
+              ; sample
+              [app.sample.backend.api]
+              [site.sample.backend.api])
+
     (:gen-class))
 
 ;; ----------------------------------------------------------------------------
