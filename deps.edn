@@ -3,9 +3,9 @@
  :deps  {monotech-hq/project-compiler  {:git/url "git@github.com:monotech-hq/project-compiler"
                                         :sha     "75514ed8e4c533b53802f3ce99794259f98bb47c"}
          monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
-                                        :sha     "13e19f64ac49c21fc67368a686b7865782b7fb18"}
+                                        :sha     "d3008a2f7e01b11bfafd85c8c283ea349918065b"}
          monotech-hq/project-kit       {:git/url "git@github.com:monotech-hq/project-kit"
-                                        :sha     "ff5c4dd9b5cb3780d26924804e67eb2120377b7b"}}
+                                        :sha     "b809678065a31fd6702c0c4cdaae212b560c7657"}}
 
  :aliases
  {:site.dev  {:exec-fn    boot-loader.backend.main/dev
