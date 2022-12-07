@@ -21,4 +21,4 @@ So instead of using the HTTPS method you have to clone with SSH authentication:
 
 If you added a submodule with HTTPS authentication, it might be the easiest
 way to change the authentication method is to remove the submodule and add
-it again to you project in your Git manager application.
+it again to the project in your Git manager application.
