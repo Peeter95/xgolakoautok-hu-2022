@@ -26,7 +26,7 @@
               [app.storage.backend.api]
               [app.user.backend.api]
               [app.views.backend.api]
-              [site.website-pages.backend.api]
+              [app.website-pages.backend.api]
 
               ; sample
               [app.sample.backend.api]
