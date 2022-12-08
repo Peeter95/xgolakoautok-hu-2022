@@ -1,8 +1,11 @@
 
 (ns boot-loader.backend.main
-    (:require [project.router.backend.api]
+    (:require [project.resources.backend.api]
+              [project.router.backend.api]
               [pattern.api       :as p]
               [shadow-cljs.api   :as shadow-cljs]
+
+              ; monotech-hq/x5
               [x.boot-loader.api :as x.boot-loader]
               [x.core.api        :as x.core]
 
@@ -56,7 +59,9 @@
   ; @usage
   ; java -jar {{namespace}}.jar 3000
   [& [port :as args]]
-  (p/ignore!) ; <- Turning off the pattern.api validator in production release
+  ; In product releases the pattern.api validator should be turned off.
+  ; Excepts when you trying to debug the application.
+  (p/ignore!) ; <- Turning off the pattern.api validator
   (start-server! {:port port}))
 
 (defn dev
