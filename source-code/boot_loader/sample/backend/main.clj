@@ -5,14 +5,6 @@
               [x.boot-loader.api :as x.boot-loader]
               [x.core.api        :as x.core]
 
-              ; monotech-hq/monoset
-              [elements.api]
-              [fonts.api]
-              [forms.api]
-              [icons.api]
-              [layouts.popup-a.api]
-              [layouts.surface-a.api]
-
               ; monotech-hq/project-developer
               [project-developer.api]
 

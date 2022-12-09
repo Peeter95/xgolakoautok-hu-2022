@@ -1,11 +1,11 @@
 
 {:paths ["resources" "source-code"]
  :deps  {monotech-hq/project-compiler  {:git/url "git@github.com:monotech-hq/project-compiler"
-                                        :sha     "1e6cf3b3af236086af4c51f6da2c90143f57fc82"}
+                                        :sha     "664bc811c3af1083bb732045067af2848ed3bc0d"}
          monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
-                                        :sha     "da4b82f58ff3116bc7f2437c38c1647208712069"}
+                                        :sha     "608988711df8d1a50dcd780f483b54f6c18a05a2"}
          monotech-hq/project-kit       {:git/url "git@github.com:monotech-hq/project-kit"
-                                        :sha     "86c2117e20760cb0b0e6fc8fb299ea03f0de0a6a"}}
+                                        :sha     "c430ea7e3ff9e602782d7429e6a7b07179e2c832"}}
 
  :aliases
  {:site.dev  {:exec-fn    boot-loader.sample.backend.main/dev
