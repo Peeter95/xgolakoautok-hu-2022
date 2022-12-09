@@ -1,8 +1,6 @@
 
 # project-template
 
-...
-
 ### Overview
 
 The <strong>project-template</strong> is our Clojure/ClojureScript web application
@@ -11,9 +9,15 @@ and the project-kit web application module-kit.
 
 ### How to use this repository as a template?
 
+- (A)
 When you create a new repository on `github.com` and you are added to this
 template as a contributor, you can find it in the 'Repository template'
 select on the top of the the `Create a new repository` page.
+
+- (B)
+Go to the template's repository page on `github.com`, and click the `Use this template`
+button (you find it above the file list).
+Select the `Create a new repository` option.
 
 ### How to clone this repository from GitHub?
 
