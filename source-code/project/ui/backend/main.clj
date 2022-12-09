@@ -1,9 +1,11 @@
 
 (ns project.ui.backend.main
     (:require [app.website-config.backend.api    :as website-config]
+              [candy.api                         :refer [return]]
               [project.ui.backend.loading-screen :as loading-screen]
               [x.router.api                      :as x.router]
-              [x.ui.api                          :as x.ui]))
+              [x.ui.api                          :as x.ui]
+              [app.vehicle-types.backend.packages.installer]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -14,7 +16,8 @@
   ; @return (keyword)
   [request]
   (if (x.router/request->app-route? request)
-      :app :site))
+      (return :app)
+      (return :site)))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -22,6 +25,7 @@
 (defn view
   ; @param (map) request
   [request]
+  (app.vehicle-types.backend.packages.installer/installer-f)
   (let [website-config   (website-config/get-website-config)
         loading-screen   (loading-screen/view  request)
         default-js-build (get-default-js-build request)]
