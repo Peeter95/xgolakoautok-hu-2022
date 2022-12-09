@@ -2,28 +2,28 @@
 {:source-paths ["source-code"]
  :builds
  {:site.dev   {:compiler-options {:infer-externs true :output-feature-set :es-next}
-               :devtools         {:watch-dir "resources" :after-load boot-loader.frontend.site/render-site!}
+               :devtools         {:watch-dir "resources" :after-load boot-loader.sample.frontend.site/render-site!}
                :modules          {:site {:init-fn boot-loader.frontend.site/start-site!}}
                :asset-path       "/site/core"
                :output-dir       "resources/public/js/core"
                :target           :browser}
 
   :app.dev    {:compiler-options {:infer-externs true :output-feature-set :es-next}
-               :devtools         {:watch-dir "resources" :after-load boot-loader.frontend.app/render-app!}
+               :devtools         {:watch-dir "resources" :after-load boot-loader.sample.frontend.app/render-app!}
                :modules          {:app {:init-fn boot-loader.frontend.app/start-app!}}
                :asset-path       "/app/core"
                :output-dir       "resources/public/js/core"
                :target           :browser}
 
   :site.prod  {:compiler-options {:infer-externs true :output-feature-set :es-next}
-               :modules          {:site {:init-fn boot-loader.frontend.site/start-site!}}
+               :modules          {:site {:init-fn boot-loader.sample.frontend.site/start-site!}}
                :asset-path       "/js/core"
                :output-dir       "resources/public/js/core"
                :optimizations    :advanced
                :target           :browser}
 
   :app.prod   {:compiler-options {:infer-externs true :output-feature-set :es-next}
-               :modules          {:app {:init-fn boot-loader.frontend.app/start-app!}}
+               :modules          {:app {:init-fn boot-loader.sample.frontend.app/start-app!}}
                :asset-path        "/js/core"
                :output-dir        "resources/public/js/core"
                :optimizations     :advanced

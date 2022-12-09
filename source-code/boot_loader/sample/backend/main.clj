@@ -1,11 +1,7 @@
 
-(ns boot-loader.backend.main
-    (:require [project.resources.backend.api]
-              [project.router.backend.api]
-              [pattern.api       :as p]
+(ns boot-loader.sample.backend.main
+    (:require [pattern.api       :as p]
               [shadow-cljs.api   :as shadow-cljs]
-
-              ; monotech-hq/x5
               [x.boot-loader.api :as x.boot-loader]
               [x.core.api        :as x.core]
 
@@ -32,6 +28,7 @@
 
               ; sample
               [app.sample.backend.api]
+              [project.sample.backend.api]
               [site.sample.backend.api])
 
     (:gen-class))

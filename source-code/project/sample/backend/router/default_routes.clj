@@ -1,5 +1,5 @@
 
-(ns project.router.backend.default-routes
+(ns project.sample.backend.router.default-routes
     (:require [sente.api :as sente]))
 
 ;; ----------------------------------------------------------------------------

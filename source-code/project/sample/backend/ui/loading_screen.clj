@@ -1,5 +1,5 @@
 
-(ns project.ui.backend.loading-screen
+(ns project.sample.backend.ui.loading-screen
     (:require [candy.api    :refer [param]]
               [css.api      :as css]
               [re-frame.api :as r]
