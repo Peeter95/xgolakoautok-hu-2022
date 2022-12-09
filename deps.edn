@@ -5,7 +5,7 @@
          monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
                                         :sha     "33b99d9c0fed4ffb4947a55666a49bac83cb22e5"}
          monotech-hq/project-kit       {:git/url "git@github.com:monotech-hq/project-kit"
-                                        :sha     "2ed71ba8c4285c4b39aa0b474e550579e993756a"}}
+                                        :sha     "597c0784e71cbac9b0813e9079b8b2904cc7f4e4"}}
 
  :aliases
  {:site.dev  {:exec-fn    boot-loader.sample.backend.main/dev
