@@ -1,16 +1,15 @@
 
-(ns boot-loader.sample.frontend.site
+(ns sample.frontend.site
     (:require ; monotech-hq/project-developer
-              [project-developer.api :as project-developer]
-
+              [project-developer.api]
               ; monotech-hq/project-kit
               [app.contents.frontend.api]
               [app.views.frontend.api]
-
               ; monotech-hq/x5
-              [x.boot-loader.api :as x.boot-loader]
-
-              ; sample
+              [x.boot-loader.api]
+              ; ...
+              [project-developer.api    :as project-developer]
+              [x.boot-loader.api        :as x.boot-loader]
               [site.sample.frontend.api :as sample]))
 
 ;; ----------------------------------------------------------------------------

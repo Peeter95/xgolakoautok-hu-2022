@@ -6,7 +6,7 @@
 ;; ----------------------------------------------------------------------------
 
 (x.core/reg-lifecycles! ::lifecycles
-  {:on-server-boot [:x.router/add-route! :main-page/route
+  {:on-server-boot [:x.router/add-route! :sample.main-page/route
                                          {:client-event   [:main-page/load-page!]
                                           :js-build       :site
-                                          :route-template "/"}]})
+                                          :route-template "/sample"}]})
