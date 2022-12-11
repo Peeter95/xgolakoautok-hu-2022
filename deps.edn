@@ -1,11 +1,11 @@
 
 {:paths ["boot-loader" "resources" "source-code"]
  :deps  {monotech-hq/project-compiler  {:git/url "git@github.com:monotech-hq/project-compiler"
-                                        :sha     "a481858356dbfbf99cb5011eec06a2f2352ecb30"}
+                                        :sha     "00e14267f4d933263eedf978236edaac69851a0a"}
          monotech-hq/project-developer {:git/url "git@github.com:monotech-hq/project-developer.git"
                                         :sha     "178741829d9bef9152bb37d26fd3e44e3a18916b"}
          monotech-hq/project-kit       {:git/url "git@github.com:monotech-hq/project-kit"
-                                        :sha     "30adba38a6f8b21afe0f4f0f94294ed2ad5b41d5"}}
+                                        :sha     "5b9c5546c74af1fb2ca6b4e0bc757838e487f14e"}}
 
  :aliases
  {:site.dev  {:exec-fn    sample.backend.main/dev
@@ -19,6 +19,6 @@
               :extra-deps {}}
 
   :prod {:extra-deps {}
-         :exec-fn   compiler.api/compile-app!
+         :exec-fn   project-compiler.api/compile-app!
          :exec-args {:java-config   {:aot true :jar-type :uber :main-class sample.backend.main}
                      :shadow-builds [:site.prod :app.prod]}}}}
