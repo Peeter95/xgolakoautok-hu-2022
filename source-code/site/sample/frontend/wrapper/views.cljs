@@ -7,11 +7,8 @@
 ;; ----------------------------------------------------------------------------
 
 (defn sidebar-menu
-  []
-  [:div#mt-sidebar--menu-items
-    [:a.mt-sidebar--menu-item.si-effect--underline
-      {:href "/my-first-page" :on-click #(r/dispatch [:components.sidebar/hide-sidebar!])}
-      "My first page"]])
+  [])
+  ; TODO
 
 (defn sidebar
   []
