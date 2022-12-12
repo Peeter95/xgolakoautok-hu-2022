@@ -1,5 +1,5 @@
 
-(ns app.website-content.frontend.editor.boxes
+(ns app.sample.frontend.editor.boxes
     (:require [app.common.frontend.api     :as common]
               [app.components.frontend.api :as components]
               [app.contents.frontend.api   :as contents]

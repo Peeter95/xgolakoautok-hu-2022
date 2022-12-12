@@ -1,12 +1,12 @@
 
-(ns app.website-content.frontend.editor.views
-    (:require [app.common.frontend.api                   :as common]
-              [app.components.frontend.api               :as components]
-              [app.contents.frontend.api                 :as contents]
-              [app.website-content.frontend.editor.boxes :as editor.boxes]
-              [elements.api                              :as elements]
-              [layouts.surface-a.api                     :as surface-a]
-              [re-frame.api                              :as r]))
+(ns app.sample.frontend.editor.views
+    (:require [app.common.frontend.api          :as common]
+              [app.components.frontend.api      :as components]
+              [app.contents.frontend.api        :as contents]
+              [app.sample.frontend.editor.boxes :as editor.boxes]
+              [elements.api                     :as elements]
+              [layouts.surface-a.api            :as surface-a]
+              [re-frame.api                     :as r]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

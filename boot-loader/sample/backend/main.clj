@@ -13,7 +13,6 @@
               [app.user.backend.api]
               [app.views.backend.api]
               ; monotech-hq/project-template
-              [app.sample.backend.api]
               [project.sample.backend.api]
               [site.sample.backend.api]
               ; monotech-hq/x5

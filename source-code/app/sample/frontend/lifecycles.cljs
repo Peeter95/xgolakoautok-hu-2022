@@ -1,7 +1,7 @@
 
-(ns app.website-content.frontend.lifecycles
-    (:require [app.website-content.frontend.dictionary :as dictionary]
-              [x.core.api                              :as x.core]))
+(ns app.sample.frontend.lifecycles
+    (:require [app.sample.frontend.dictionary :as dictionary]
+              [x.core.api                     :as x.core]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

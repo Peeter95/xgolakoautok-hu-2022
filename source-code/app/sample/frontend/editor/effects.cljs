@@ -1,7 +1,7 @@
 
-(ns app.website-content.frontend.editor.effects
-  (:require [app.website-content.frontend.editor.views :as editor.views]
-            [re-frame.api                              :as r]))
+(ns app.sample.frontend.editor.effects
+  (:require [app.sample.frontend.editor.views :as editor.views]
+            [re-frame.api                     :as r]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
