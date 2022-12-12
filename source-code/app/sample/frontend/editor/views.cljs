@@ -13,7 +13,14 @@
 
 (defn- basic-data
   []
-  [:<> [editor.boxes/sample-box]])
+  [:<> [editor.boxes/website-logo-box]
+       [editor.boxes/website-data-box]])
+
+(defn- menus
+  []
+  [:<> [editor.boxes/header-menu-box]
+       [editor.boxes/sidebar-menu-box]
+       [editor.boxes/footer-menu-box]])
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -21,7 +28,8 @@
 (defn- view-selector
   []
   (let [current-view-id @(r/subscribe [:x.gestures/get-current-view-id :website-content.editor])]
-       (case current-view-id :basic-data [basic-data])))
+       (case current-view-id :basic-data [basic-data]
+                             :menus      [menus])))
 
 (defn- body
   []
@@ -38,7 +46,8 @@
                              {:label      :website-content
                               :crumbs     [{:label :app-home :route "/@app-home"}
                                            {:label :website-content}]
-                              :menu-items [{:label :basic-data :change-keys [:sample]}]}])
+                              :menu-items [{:label :basic-data :change-keys [:company-name :company-slogan :company-logo]}
+                                           {:label :menus      :change-keys [:header-menu :footer-menu]}]}])
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
