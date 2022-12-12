@@ -3,7 +3,7 @@
     (:require [app.common.frontend.api          :as common]
               [app.components.frontend.api      :as components]
               [app.contents.frontend.api        :as contents]
-              [app.sample.frontend.editor.boxes :as editor.boxes]
+              [app.website-content.frontend.api :as website-content]
               [elements.api                     :as elements]
               [layouts.surface-a.api            :as surface-a]
               [re-frame.api                     :as r]))
@@ -13,14 +13,14 @@
 
 (defn- basic-data
   []
-  [:<> [editor.boxes/website-logo-box]
-       [editor.boxes/website-data-box]])
+  [:<> [website-content/website-logo-box]
+       [website-content/website-data-box]])
 
 (defn- menus
   []
-  [:<> [editor.boxes/header-menu-box]
-       [editor.boxes/sidebar-menu-box]
-       [editor.boxes/footer-menu-box]])
+  [:<> [website-content/header-menu-box]
+       [website-content/sidebar-menu-box]
+       [website-content/footer-menu-box]])
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -46,7 +46,7 @@
                              {:label      :website-content
                               :crumbs     [{:label :app-home :route "/@app-home"}
                                            {:label :website-content}]
-                              :menu-items [{:label :basic-data :change-keys [:company-name :company-slogan :company-logo]}
+                              :menu-items [{:label :basic-data :change-keys [:website-name :website-slogan :website-logo]}
                                            {:label :menus      :change-keys [:header-menu :footer-menu]}]}])
 
 ;; ----------------------------------------------------------------------------
