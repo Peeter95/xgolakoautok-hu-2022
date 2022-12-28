@@ -1,0 +1,7 @@
+
+; To apply the changes of this file you must restart the x5 server!
+; 
+; @edn (map) docker-config
+; {:database-host (string)}
+
+{:database-host "mongo"}

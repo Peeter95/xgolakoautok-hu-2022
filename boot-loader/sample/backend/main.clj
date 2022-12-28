@@ -12,16 +12,16 @@
               [app.storage.backend.api]
               [app.user.backend.api]
               [app.views.backend.api]
-              ; monotech-hq/project-template
-              [project.sample.backend.api]
-              [site.sample.backend.api]
               ; monotech-hq/x5
               [x.boot-loader.api]
               ; ...
               [pattern.api       :as p]
               [shadow-cljs.api   :as shadow-cljs]
               [x.boot-loader.api :as x.boot-loader]
-              [x.core.api        :as x.core]))
+              [x.core.api        :as x.core]
+              ; Xgo
+              [project.xgo.backend.api]
+              [site.xgo.backend.api]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------

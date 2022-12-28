@@ -8,9 +8,9 @@
               ; monotech-hq/x5
               [x.boot-loader.api]
               ; ...
-              [project-developer.api    :as project-developer]
-              [x.boot-loader.api        :as x.boot-loader]
-              [site.sample.frontend.api :as sample]))
+              [project-developer.api :as project-developer]
+              [x.boot-loader.api     :as x.boot-loader]
+              [site.xgo.frontend.api :as xgo]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -18,7 +18,7 @@
 (defn- site-structure
   ; @param (symbol) ui-structure
   [ui-structure]
-  [:<> [sample/wrapper ui-structure]
+  [:<> [xgo/wrapper ui-structure]
        [project-developer/magic-button]])
 
 ;; ----------------------------------------------------------------------------

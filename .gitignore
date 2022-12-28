@@ -21,3 +21,16 @@ pom.xml.asc
 .shadow-cljs
 node_modules
 resources/public/js/core
+
+# x.core
+resources/public/x/build-version.edn
+environment/x/installation-errors.log
+environment/x/installed-packages.edn
+
+# x.media
+environment/media/thumbnails/*
+environment/media/temp/*
+environment/media/storage/*
+
+# app.website-config
+environment/project/website-config.edn

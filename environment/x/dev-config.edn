@@ -1,0 +1,10 @@
+
+; To apply the changes of this file you must restart the x5 server!
+; 
+; @edn (map) dev-config
+; {:watched-dirs (strings in vector)
+;   It specifies which directories will be watched by the reload handler.
+;   (The reload handler udpates the watched namespaces when they are changed.)
+;   Default: ["source-code"]}
+
+{:watched-dirs ["source-code"]}
