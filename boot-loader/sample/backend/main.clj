@@ -3,7 +3,7 @@
     (:gen-class)
     (:require ; monotech-hq/project-developer
               [project-developer.api]
-              ; monotech-hq/project-kit
+              ; App monotech-hq/project-kit
               [app.common.backend.api]
               [app.common.iso.api]
               [app.contents.backend.api]
@@ -12,6 +12,33 @@
               [app.storage.backend.api]
               [app.user.backend.api]
               [app.views.backend.api]
+              [app.schemes.backend.api]
+              [app.clients.backend.api]
+     
+              [app.website-config.backend.api]
+              [app.website-contacts.backend.api]
+              [app.website-content.backend.api]
+              [app.website-menus.backend.api]
+              [app.website-pages.backend.api]
+     
+              [app.vehicle-categories.backend.api]
+              [app.vehicle-models.backend.api]
+              [app.vehicle-types.backend.api]
+     
+              [app.products.backend.api]
+              [app.packages.backend.api]
+              [app.services.backend.api]
+     
+              [app.price-quotes.backend.api]
+              [app.price-quote-inquiries.backend.api]
+              [app.price-quote-templates.backend.api]
+              ; Site
+              ;; [site.schemes.backend.api]
+              [site.website-config.backend.api]
+              [site.website-contacts.backend.api]
+              [site.website-content.backend.api]
+              [site.website-menus.backend.api]
+              [site.website-pages.backend.api]
               ; monotech-hq/x5
               [x.boot-loader.api]
               ; ...
