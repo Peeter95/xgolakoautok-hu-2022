@@ -14,7 +14,7 @@
 
 {:core-js-dir "resources/public/js/core" 
  :database-host "127.0.0.1" 
- :database-name "x5" 
+ :database-name "xgolakoautok-hu" 
  :database-port 27017 
  :default-port 3000 
  :max-upload-size 1000000000 
