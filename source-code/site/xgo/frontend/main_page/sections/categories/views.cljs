@@ -1,7 +1,6 @@
 
 (ns site.xgo.frontend.main-page.sections.categories.views
   (:require [re-frame.api         :as r]
-
             [site.xgo.frontend.main-page.sections.categories.subs]))
 
 ;; -----------------------------------------------------------------------------

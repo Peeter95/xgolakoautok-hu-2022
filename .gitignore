@@ -34,3 +34,15 @@ environment/media/storage/*
 
 # app.website-config
 environment/project/website-config.edn
+
+# app.website-content
+environment/project/website-content.edn
+
+# app.website-contacts
+environment/project/website-contacts.edn
+
+# app.price-quotes
+environment/project/price-quote-config.edn
+
+# app.website-pages
+environment/project/website-pages.edn
