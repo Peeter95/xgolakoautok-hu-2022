@@ -16,13 +16,13 @@
         {:keys [category model type]}                @(r/subscribe [:x.db/get-item [:filters]])]
     [elements/breadcrumbs {:crumbs [{:label       category-name
                                      :placeholder "category"
-                                     :route       (str "/" category)}
+                                     :route       (str "/jarmuvek/" category)}
                                     {:label       model-name
                                      :placeholder "model"
-                                     :route       (str "/" category "/" model)}
+                                     :route       (str "/jarmuvek/" category "/" model)}
                                     {:label       type-name
                                      :placeholder "type"
-                                     :route       (str "/" category "/" model "/" type)}
+                                     :route       (str "/jarmuvek/" category "/" model "/" type)}
                                     {:label       "Árajánlat"}]}]))
 
 ;; ----------------------------------------------------------------------------

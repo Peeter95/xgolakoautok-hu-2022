@@ -9,5 +9,6 @@
 (r/reg-event-fx
   :categories/select!
   (fn [_ [_ name]]
-    {:dispatch-n [[:x.db/set-item! [:filters] {:category (normalize/clean-text name "-+")}]]
-     :url/set-url! (str "/" (normalize/clean-text name "-+"))}))
+    (let [category-name (normalize/clean-text name "-+")]
+      {:dispatch     [:x.db/set-item! [:filters] {:category category-name}]
+       :url/set-url! (str "/jarmuvek/" category-name)})))

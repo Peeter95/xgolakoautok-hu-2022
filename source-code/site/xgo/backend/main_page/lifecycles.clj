@@ -14,24 +14,27 @@
   :debug.routes
   (fn [{:keys [db]} [_]]
     {:db (as-> db % 
+           ;; TEMP cant added all route via x.router/add-route! event so it done by hand
            (r xyz % :main-page/route
                     {:client-event   [:main-page/load-page!]
                      :js-build       :site
                      :route-template "/"})
-           (r xyz % :main-page.category/route
+           (r xyz % :main-page.vehicles/route
                     {:client-event   [:main-page/load-page!]
                      :js-build       :site
-                     :route-template "/:category"})
-
-           (r xyz % :main-page.model/route
+                     :route-template "/jarmuvek"})
+           (r xyz % :main-page.vehicles.category/route
                     {:client-event   [:main-page/load-page!]
                      :js-build       :site
-                     :route-template "/:category/:model"})
-
-           (r xyz % :main-page.type/route
+                     :route-template "/jarmuvek/:category"})
+           (r xyz % :main-page.vehicles.model/route
                     {:client-event   [:main-page/load-page!]
                      :js-build       :site
-                     :route-template "/:category/:model/:type"}))}))
+                     :route-template "/jarmuvek/:category/:model"})
+           (r xyz % :main-page.vehicles.type/route
+                    {:client-event   [:main-page/load-page!]
+                     :js-build       :site
+                     :route-template "/jarmuvek/:category/:model/:type"}))}))
 
 
 (x.core/reg-lifecycles! ::lifecycles

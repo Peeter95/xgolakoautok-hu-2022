@@ -7,4 +7,4 @@
     [:x.router/add-route! :price-quote/route
                           {:client-event   [:price-quote/load-page!]
                            :js-build       :site
-                           :route-template "/:category/:model/:type/arajanlat"}]})
+                           :route-template "/jarmuvek/:category/:model/:type/arajanlat"}]})
