@@ -226,7 +226,9 @@
 /***** Contacts *****/
 
 #xgo-contacts {
+  margin-top: 95px;
   min-height: 50vh;
+  background-color: #5b97bd
 }
 
 /***** Contacts *****/
@@ -399,6 +401,7 @@
 
 #xgo-type--layout {
   /* margin: 80px 0; */
+  padding: 0 25px;
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;
@@ -408,7 +411,6 @@
 #xgo-type--images {
   border-radius: 10px;
   overflow: hidden;
-  height: 500px;
   width: 100%;
   background-color: rgba(51, 51, 51, 0.202);
 }
@@ -455,6 +457,7 @@
 @media only screen and (max-width: 840px) {
   #xgo-type--layout {
     /* display: block; */
+    padding: unset;
     grid-template-columns: 1fr;
     gap: 80px;
   }

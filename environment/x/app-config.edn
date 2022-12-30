@@ -54,4 +54,6 @@
   {:uri "/favicon/blue/favicon-32.png" :size "32x32"} 
   {:uri "/favicon/blue/favicon-96.png" :size "96x96"} 
   {:uri "/favicon/blue/favicon-144.png" :size "144x144"}] 
- :css-paths [{:uri "/xgo/css/site.css" :js-build :site}]}
+ :css-paths [{:uri "/xgo/css/site.css"                  :js-build :site}
+             {:uri "/plugins/carousel/carousel.css"     :js-build :site}
+             {:uri "/plugins/carousel/carousel.min.css" :js-build :site}]}
