@@ -35,15 +35,17 @@
       [type-name-button-group types-data])])
 
 (defn- type-images [images]
-  [:div {:id "xgo-type--images"}
-    [site.components/slider 
-       (map (fn [a] [:div {:key a :style {:height "500px" :display "flex" :align-items "center" :justify-content "center"}} 
-                     [:h2 a]
-                     "imagine an image here"]) 
-           (range 10))]]) 
-      ;; (map (fn [{:media/keys [id uri]}]
-      ;;         [:img {:src uri}])
-      ;;      images)]])
+  (if (empty? images)
+    [:div {:id "xgo-type--images"} [:p {:style {:height "400px"}} "No image"]]
+    [:div {:id "xgo-type--images"}
+      [site.components/slider
+        (map (fn [{:media/keys [id uri]}]
+                [:div {:style {:display "flex" :align-items "center"
+                               :background-image (str "url(" uri ")")
+                               :background-position "center"
+                               :background-size "cover" :aspect-ratio "16/10" :width "100%"}}])
+                  ;;  [:img {:src uri :style {}}]])
+             images)]]))
 
 (defn- type-table [id]
   [:div {:class "mt-scheme-table--container" :style {:min-height "550px"}}
