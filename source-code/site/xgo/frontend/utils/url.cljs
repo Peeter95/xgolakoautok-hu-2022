@@ -1,5 +1,5 @@
 
-(ns site.xgo.utils.url
+(ns site.xgo.frontend.utils.url
   (:require
     [re-frame.core :as r]
     [ajax.url :as ajax-url]

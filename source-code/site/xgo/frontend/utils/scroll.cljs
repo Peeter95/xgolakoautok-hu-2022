@@ -1,4 +1,4 @@
-(ns site.xgo.utils.scroll
+(ns site.xgo.frontend.utils.scroll
  (:require [re-frame.api :as r]))
 
 (defn scroll-into 
