@@ -17,6 +17,14 @@
       {:scroll/scroll-into ["xgo-categories"]}
       {})))
 
+(defn- footer-hero []
+  [:div {:style {:background-image  "url(/xgo/img/footer.jpg)"
+                 :background-size   "cover"
+                 :background-repeat "no-repeat"
+                 :height            "100vh"
+                 :width             "100%"
+                 :border-bottom     "3px solid #5b97bd"}}])
+
 (defn view
   []
   (reagent/lifecycles 
@@ -30,10 +38,6 @@
           [sections/types]
           [sections/models])
         [sections/contacts]
-        [:div {:style {:background-image "url(/xgo/img/footer.jpg)"
-                       :background-size "cover"
-                       :background-repeat "no-repeat"
-                       :height  "100vh"
-                       :width   "100%"}}]
+        [footer-hero]
         [:div {:style {:background "#2d2925" :padding "60px 0 15px 0"}}
           [components/credits {:theme :dark}]]])}))
