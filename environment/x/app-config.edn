@@ -46,7 +46,7 @@
  :theme-color "#111111" 
  :plugin-js-paths [] 
  :app-locale :hu 
- :app-title "My app" 
+ :app-title "XGO lakóautók" 
  :author "Monotech.hu" 
  :app-domain "https://my-app.com" 
  :favicon-paths 
