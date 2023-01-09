@@ -5,6 +5,8 @@
               ; monotech-hq/project-kit
               [app.contents.frontend.api]
               [app.views.frontend.api]
+              [site.website-menus.frontend.api]
+              [site.website-pages.frontend.api]
               ; monotech-hq/x5
               [x.boot-loader.api]
               ; ...
