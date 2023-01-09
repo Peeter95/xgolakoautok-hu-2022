@@ -40,9 +40,9 @@
   ; @param (symbol) ui-structure
   [ui-structure]
   [:div#mt
-    [ui-structure]])
-    ;; [header]
-    ;; [sidebar]])
+    [ui-structure]
+    [header]
+    [sidebar]])
 
 (defn view
   ; @param (symbol) ui-structure
