@@ -226,9 +226,48 @@
 /***** Contacts *****/
 
 #xgo-contacts {
-  margin-top: 95px;
   min-height: 50vh;
   background-color: #78abca;
+}
+
+#xgo-contacts--background {
+  background-image: url(/xgo/img/footer.jpg);
+  background-position: bottom;
+  background-size: cover;
+  border-bottom: 3px solid rgb(158, 195, 251);
+  height: 800px;
+}
+
+#xgo-social-media-links {
+  display: flex;
+  flex-direction: column;
+  grid-gap: 24px;
+  padding-top: 60px;
+}
+
+.xgo-social-media-link {
+  display: flex;
+  text-decoration: none;
+}
+
+.xgo-social-media-link:hover {
+  opacity: .5;
+  text-decoration: none;
+}
+
+.xgo-social-media-link i {
+  display: flex;
+  font-size: 24px;
+  justify-content: center;
+  width: 32px;
+}
+
+.xgo-social-media-link span {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  padding-left: 12px;
 }
 
 /***** Contacts *****/
