@@ -283,6 +283,16 @@
   padding: 15px 0;
 }
 
+#xgo-categories--thumbnail-container {
+  margin-top: 70px;
+  border-bottom: 2px solid gray;
+}
+
+#xgo-categories--thumbnail {
+  max-width: var(--site-width);
+  margin: 0 auto;
+}
+
 @media only screen and (max-width: 840px) {
   #xgo-categories {
     justify-content: unset;

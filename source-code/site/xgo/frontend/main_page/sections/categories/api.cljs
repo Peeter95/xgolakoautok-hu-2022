@@ -8,3 +8,5 @@
 ;; -----------------------------------------------------------------------------
 
 (def view views/view)
+
+(def thumbnail views/category-thumbnail)

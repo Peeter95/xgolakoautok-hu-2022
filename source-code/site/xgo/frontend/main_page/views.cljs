@@ -4,7 +4,9 @@
               [reagent.api                               :as reagent]
               [site.components.frontend.api              :as components]
               [site.xgo.frontend.main-page.sections.api  :as sections]
-              [x.router.api                              :as router]))
+              [x.router.api                              :as router]
+              
+              [site.xgo.frontend.main-page.sections.categories.api :as categories]))
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
@@ -37,6 +39,7 @@
         (if @(r/subscribe [:filters/model])
           [sections/types]
           [sections/models])
+        [categories/thumbnail]
         [sections/contacts]
         [footer-hero]
         [:div {:style {:background "#2d2925" :padding "60px 0 15px 0"}}

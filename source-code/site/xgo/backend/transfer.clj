@@ -17,6 +17,7 @@
      {:projection #:category{:name        1
                              :order       1
                              :models      1
+                             :thumbnail   1
                              :description 1}})
 
 (defn transfer-categories-f

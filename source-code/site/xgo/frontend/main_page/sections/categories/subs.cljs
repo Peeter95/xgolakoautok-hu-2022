@@ -32,6 +32,12 @@
       (get-in db [:site :categories category-name :description]))))
 
 (r/reg-sub
+ :categories.selected/thumbnail
+ (fn [db [_]]
+   (let [category-name (get-in db [:filters :category] "dynamic")]
+     (get-in db [:site :categories category-name :thumbnail]))))
+
+(r/reg-sub
   :categories.selected/models
   :<- [:categories/all]
   :<- [:filters/category]

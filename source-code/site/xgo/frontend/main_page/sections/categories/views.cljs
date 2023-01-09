@@ -21,6 +21,12 @@
   [:div {:id "xgo-categories--description"}
     description])
 
+(defn category-thumbnail []
+  (let [{:media/keys [uri]} @(r/subscribe [:categories.selected/thumbnail])]
+    [:div {:id "xgo-categories--thumbnail-container"}
+      [:div {:id "xgo-categories--thumbnail"}
+        [:img {:src uri :style {:height "180px"}}]]]))
+
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
 
