@@ -31,6 +31,8 @@
               [app.price-quotes.frontend.api]
               [app.price-quote-inquiries.frontend.api]
               [app.price-quote-templates.frontend.api]
+              
+              [app.xgo.frontend.api]
               ; monotech-hq/x5
               [x.boot-loader.api]
               ; ...
