@@ -25,5 +25,5 @@
   []
   [:section {:id "xgo-hero"}
         [header]
-        [components/scroll-icon {:style {:position "absolute" :bottom "0" :left "0"}}]])
+        [components/scroll-icon {:style {:position "absolute" :bottom "15px" :left "0"}}]])
    

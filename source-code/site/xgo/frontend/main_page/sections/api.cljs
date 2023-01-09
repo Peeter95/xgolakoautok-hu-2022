@@ -4,7 +4,7 @@
               [site.xgo.frontend.main-page.sections.hero           :as hero]
               [site.xgo.frontend.main-page.sections.categories.api :as categories]
               [site.xgo.frontend.main-page.sections.models.api     :as models]
-              [site.xgo.frontend.main-page.sections.types.api     :as types]))
+              [site.xgo.frontend.main-page.sections.types.api      :as types]))
 
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------

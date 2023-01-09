@@ -9,6 +9,7 @@
 } */
 
 #xgo {
+  --site-width: 1200px;
   background-color: #f4f7f6;
 }
 
@@ -183,10 +184,13 @@
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-position: center;
+  background-clip: content-box;
   background-size: cover;
   overflow: hidden;
   display: flex;
-  height: 95vh;
+  height: 100vh;
+  padding: 25px;
+  border-radius: 50px;
 }
 
 #xgo-hero--header {
