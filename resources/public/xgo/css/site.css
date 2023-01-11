@@ -19,6 +19,87 @@
 /******************************************************************************/
 /***** Utils *****/
 
+/*** Section title ***/
+
+.xgo-section-title {
+  align-items: center;
+  display: flex;
+  font-family: 'Poppins';
+  font-size: 30px;
+  font-weight: 200;
+  letter-spacing: 3px;
+  line-height: 30px;
+  padding: 120px 0 60px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+/*** Section title ***/
+
+/*** Mt Contacts ***/
+
+#mt-contacts {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  max-width: 800px;
+}
+
+.mt-contacts--address-group,
+.mt-contacts--contact-group {
+  display: flex;
+  flex-direction: column;
+  width: 500px;
+  padding-bottom: 30px;
+}
+
+#mt-contacts--address-data-information,
+#mt-contacts--contacts-data-information {
+  margin-bottom: 30px;
+  min-width: 500px;
+}
+
+.mt-contacts--address-data-information,
+.mt-contacts--contacts-data-information,
+.mt-contacts--contact-group-label,
+.mt-contacts--address-group-label {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 2px;
+}
+
+.mt-contacts--email-address,
+.mt-contacts--phone-number,
+.mt-contacts--company-address {
+  color: #007cff !important;
+  font-size: 21px;
+  line-height: 35px;
+  letter-spacing: 2px;
+  width: fit-content;
+}
+
+@media only screen and (max-width: 800px) {
+.mt-contacts--email-address,
+.mt-contacts--phone-number,
+.mt-contacts--company-address {
+  font-size: 15px;
+}}
+
+@media only screen and (max-width: 600px) {
+  .mt-contacts--address-group, .mt-contacts--contact-group {
+    width: auto;
+  }
+  #mt-contacts--address-data-information, 
+  #mt-contacts--contacts-data-information {
+    min-width: unset;
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+/*** Mt Contacts ***/
+
 /*** Scheme Table ***/
 
 .mt-scheme-table--container {
