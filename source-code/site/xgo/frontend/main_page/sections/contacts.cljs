@@ -10,7 +10,7 @@
 
 (defn social-media-link
   [link icon-class label]
-  [:a.kc-social-media-link {:href (uri/valid-uri link) :target "_blank" :title label}
+  [:a.xgo-social-media-link {:href (uri/valid-uri link) :target "_blank" :title label}
                            [:i {:class icon-class}]
                            [:span (-> link (string/not-starts-with! "https://")
                                            (string/not-starts-with! "http://")
@@ -42,9 +42,9 @@
 
 (defn- contacts
   []
-  [:div {:class "xgo-section--body"}
-        ;; [components/contacts ::contacts {}]
-        [:div#xgo-social-media-links [social-media-links]]])
+  [:<> [:p.xgo-section-title "Kapcsolat"]
+       [components/contacts ::contacts {}]
+       [:div#xgo-social-media-links [social-media-links]]])
 
 
 (defn view

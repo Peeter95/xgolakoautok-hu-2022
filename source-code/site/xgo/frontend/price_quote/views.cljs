@@ -1,7 +1,7 @@
 
 (ns site.xgo.frontend.price-quote.views
     (:require [re-frame.api                 :as r]
-              [site.components.frontend.api :as components]
+              [site.xgo.components.frontend.api :as components]
               [elements.api                 :as elements]
               [x.components.api             :as x.components]))
 

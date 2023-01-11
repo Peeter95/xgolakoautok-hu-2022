@@ -1,8 +1,9 @@
 
 (ns site.xgo.frontend.main-page.sections.types.views
-  (:require [re-frame.api                 :as r]
-            [reagent.api                  :as reagent]
-            [site.components.frontend.api :as site.components]))
+  (:require [re-frame.api                     :as r]
+            [reagent.api                      :as reagent]
+            [site.components.frontend.api     :as site.components]
+            [site.xgo.components.frontend.api :as xgo.components]))
 
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
@@ -38,7 +39,7 @@
   (if (empty? images)
     [:div {:id "xgo-type--images"} [:p {:style {:height "400px"}} "No image"]]
     [:div {:id "xgo-type--images"}
-      [site.components/slider
+      [xgo.components/slider
         (map (fn [{:media/keys [id uri]}]
                 [:div {:style {:display "flex" :align-items "center"
                                :background-image (str "url(" uri ")")

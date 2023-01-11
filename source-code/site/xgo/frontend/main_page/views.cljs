@@ -22,13 +22,13 @@
 (defn credits
   []
   [:div {:style {:background "#2d2925" :padding "15px 0 15px 0" :color "#9ec3fb"}}
-    [components/credits {:theme :dark}]])
-  ;;  [components/crseated-by-link ::created-by-link {:theme :dark}]])
+    ;; [components/credits {:theme :dark}]
+    [components/created-by-link ::created-by-link {:theme :dark}]])
 
 (defn- footer []
  (let [footer-menu @(r/subscribe [:x.db/get-item [:website-content :handler/transfered-content :footer-menu]])]
-    [:<> 
-      ;; [components/menu ::footer-menu {:menu-link footer-menu}]
+    [:div {:id "xgo-footer"}
+      [components/menu ::footer-menu {:menu-link footer-menu}]
       [credits]]))
       
 (defn view
