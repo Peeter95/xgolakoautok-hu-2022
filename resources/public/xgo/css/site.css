@@ -207,19 +207,26 @@
 #mt-navbar {
   height: 75px;
   padding: 0 24px;
-  transition: background-color .2s, transform .3s;
+  transition: background-color .2s, height .3s;
 }
 
 #mt-navbar[data-scrolled="false"] {
-  background-color: rgba(255, 255, 255, 0.607);
-  transform: translateY(-100%);
+  background-color: rgba(255, 255, 255, 0);
+  height: 50px;
 }
 
 #mt-navbar[data-scrolled="true"] {
   background-color: rgba(255, 255, 255, 0.942);
-  transform: translateY(0%);
+  height: 75px;
 }
 
+#mt-navbar[data-scrolled="false"] #mt-navbar--logo {
+  transform: translateX(-200%);
+}
+
+#mt-navbar[data-scrolled="true"] #mt-navbar--logo {
+  transform: translateY(0%);
+}
 #mt-navbar .mt-menu--menu-items {
   gap: 50px;
 }
@@ -242,6 +249,9 @@
   display: flex;
   align-items: center;
   gap: 15px;
+  transition-delay: .3s;
+  transition-property: transform;
+  transition-duration: .3s;
 }
 
 /***** Navbar *****/
