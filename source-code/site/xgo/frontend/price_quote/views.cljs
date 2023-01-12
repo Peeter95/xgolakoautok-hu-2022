@@ -69,13 +69,13 @@
 ;; ----------------------------------------------------------------------------
 ;; --- Parts ---
 
-(defn- parts-item [[id {:keys [name description thumbnail unit-price quantity-unit] :as props}]]
+(defn- parts-item [[id {:keys [name description thumbnail] :as props}]]
   [:div {:key   id
          :class "mt-price-quote--list-item"}
-   [list-item-thumbnail thumbnail]
-   [list-item-name-description name description]
-   [list-item-price-unit props]
-   [quantity-buttons [:products id]]])
+    [list-item-thumbnail thumbnail]
+    [list-item-name-description name description]
+    [list-item-price-unit props]
+    [quantity-buttons [:products id]]])
 
 (defn- parts []
   (let [products-data @(r/subscribe [:x.db/get-item [:site :products]])]
@@ -125,7 +125,7 @@
 ;; ----------------------------------------------------------------------------
 
 (defn- accessories []
-  [:div {:id "mt-price-quote--idk"}
+  [:div {:id "mt-price-quote--accessories"}
     [components/tabs {:view-id :my-view-id}
       "Tartozékok"     [parts]
       "Szolgáltatások" [services]
@@ -168,23 +168,37 @@
 ;; ----------------------------------------------------------------------------
 ;; --- Overview ---
 
-(defn- overview-item [[id {:keys [thumbnail description] :as props}]]
+(defn- customer-data [{:keys [company-name email name phone-number]}]
+  [:div 
+    [:h3 {:class "mt-price-quote--list-title"} "Adatok"]
+    [:div {:id "mt-prce-quote--list-client-data"}
+      [:p "Név: "] [:p name] 
+      (if-not (empty? company-name) [:<> [:p "Cégnév: "] [:p company-name]]) 
+      [:p "Email: "] [:p email] 
+      (if-not (empty? phone-number) [:<> [:p "Telefonszám: "] [:p phone-number]])]]) 
+
+(defn- overview-item-price [{:keys [automatic-price unit-price count]}]
+  (let [price (* count (or automatic-price unit-price))]
+    [:p {:style {:white-space "nowrap" :font-weight "600"}} 
+      (str price " Ft")]))
+
+(defn- overview-item [[id {:keys [thumbnail name description count] :as props}]]
   [:div {:style {:display "flex" :align-items "center" :gap "16px"}}
-    ;; [:p {:style {:font-size "16px" :width "16px" :height "16px"}} "X"]   
-    [:div {:key   id
-           :class "mt-price-quote--list-item"
-           :style {:width "100%"}}
-      [list-item-thumbnail thumbnail]
-      [list-item-name-description name description]
-      [list-item-price props]]
-    [elements/icon {:icon :close :size :xs}]
-    [:p {:style {:font-size "24px" :width "24px" :height "24px"}} "2"]])
+      [:div {:key   id
+             :class "mt-price-quote--list-item"
+             :style {:width "600px" :flex-grow 1}}
+        [list-item-thumbnail thumbnail]
+        [list-item-name-description name description]
+        ;; [list-item-price props]]
+        [elements/icon {:icon :close :size :xs}]
+        [:p {:style {:font-size "24px" :width "24px" :height "24px"}} count]
+        [overview-item-price props]]])
 
 (defn- overview-section [label [id items]]
   (if-not (empty? items)
     [:<>
       [:h3 {:class "mt-price-quote--list-title"} label]
-      [lister overview-item @(r/subscribe [:price-quote.overview.accessories/get [id items]])]]))
+      [lister overview-item @(r/subscribe [:price-quote.overview.accessories/get-items [id items]])]]))
 
 (defn- accessories-overview [{:keys [products services packages]}]
   [:div
@@ -194,13 +208,12 @@
 
 (defn- overview []
   (let [price-quote-data @(r/subscribe [:x.db/get-item [:price-quote]])
-        selected-model       @(r/subscribe [:models/selected])
-        selected-type       @(r/subscribe [:types/selected])]
+        selected-model   @(r/subscribe [:models/selected])
+        selected-type    @(r/subscribe [:types/selected])]
     [:div {:class "mt-price-quote--box"}
       [:h2 {:style {:margin-bottom "15px"}} "Áttekintés"]
-      [:div 
-        ;; [:img {:src (:media/uri thumbnail) :width "100px"}]
-        [:p (:name selected-model) " / " (:name selected-type)]]
+      [:p (:name selected-model) " / " (:name selected-type)]
+      [customer-data price-quote-data]
       [accessories-overview price-quote-data]]))
 
 ;; --- Overviews ---

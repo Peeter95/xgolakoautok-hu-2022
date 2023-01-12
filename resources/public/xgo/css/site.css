@@ -210,10 +210,6 @@
   transition: background-color .2s, transform .3s;
 }
 
-#mt[data-websitepage=true] #mt-navbar {
-  transform: translateY(0%);
-}
-
 #mt-navbar[data-scrolled="false"] {
   background-color: rgba(255, 255, 255, 0.607);
   transform: translateY(-100%);
@@ -739,11 +735,12 @@
 /***** Price quote *****/
 
 #mt-price-quote {
-  margin: 50px;
+  padding: 50px;
+  min-height: 100vh;
 }
 
 #mt-price-quote--title {
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
 
 .mt-price-quote--box {
@@ -779,17 +776,19 @@
   display: flex; 
   gap: 25px;
   flex-direction: column;
+  max-height: 440px;
+  overflow-y: auto;
 }
 
 .mt-price-quote--list-item {
   display: flex;
   gap: 24px;
+  padding: 12px;
   align-items: center;
   justify-content: space-between;
   background-color: #fbfbfb;
-  padding: 12px;
+  border: 1px solid lightgray;
   border-radius: 6px;
-  box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.05);
   user-select: none;
 }
 
@@ -803,6 +802,11 @@
 
 .mt-price-quote--list-item-description {
   font-size: 0.8rem;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3; 
+  white-space: pre-wrap; 
 }
 
 .mt-price-quote--list-item-quantity {
@@ -810,7 +814,22 @@
   align-items: center;
   justify-content: center;
 }
+
 /*** Lister ***/
+
+#mt-prce-quote--list-client-data {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 3px 8px;
+}
+
+#mt-prce-quote--list-client-data p:nth-child(odd) {
+  font-weight: 500;
+}
+
+#mt-prce-quote--list-client-data p:nth-child(even) {
+  font-weight: 600;
+}
 
 /***** Price quote *****/
 /******************************************************************************/
@@ -819,7 +838,7 @@
 /***** Stepper *****/
 
 #mt-stepper--container {
-  margin: 50px 0px;
+  margin: 35px 0px;
 }
 
 #mt-stepper--header {
@@ -828,12 +847,17 @@
   width: 100%;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 60px;
+  margin-bottom: 35px;
 }
 
 .mt-stepper--line {
   width: auto;
   flex: auto;
+}
+
+#mt-stepper--step-container {
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .mt-stepper--step-label {
@@ -856,12 +880,11 @@
   cursor: auto;
 }
 
-
 #mt-stepper--footer {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
-  margin-top: 60px;
+  margin-top: 35px;
 }
 
 /***** Stepper *****/

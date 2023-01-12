@@ -25,8 +25,11 @@
    (get-in db [:price-quote tab-id item-id] 0)))
 
 (r/reg-sub 
- :price-quote.overview.accessories/get
+ :price-quote.overview.accessories/get-items
  (fn [db [_ [accessory-id items]]]
-    (-> db 
-        (get-in [:site accessory-id])
-        (select-keys (keys items)))))
+    (let [accessories (get-in db [:site accessory-id])]
+      (letfn [(f [m [item-id item-count]]
+                (let [accessory-item (assoc (get accessories item-id false) 
+                                            :count item-count)]
+                  (assoc m item-id accessory-item)))]
+        (reduce f {} items)))))
