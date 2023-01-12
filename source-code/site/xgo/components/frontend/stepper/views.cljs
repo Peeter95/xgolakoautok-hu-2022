@@ -63,14 +63,14 @@
 
 (defn- back-button [step-index]
   (if (< 0 step-index)
-     [x.elements/button {:label            "Elöző"
+     [x.elements/button {:label            "Vissza"
                          :on-click         #(r/dispatch [:stepper/back!])
                          :variant          :outlined
                          :style            {:padding "15px"}
                          :background-color :muted}]))
 
 (defn- next-button [{:keys [] [_ {:keys [valid?]}] :current-step}]
-  [x.elements/button {:label            "Következő"
+  [x.elements/button {:label            "Tovább"
                       :on-click         #(r/dispatch [:stepper/next!])
                       :disabled?        (not valid?)
                       :variant          :outlined

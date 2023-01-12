@@ -18,9 +18,9 @@
    (let [category (select-keys filters [:category])]
      {:dispatch           [:x.db/set-item! [:filters] category]
       :url/set-url!       (str "/jarmuvek/" (:category category))
-      :scroll/scroll-into ["xgo-categories" {:behavior "smooth"
-                                             :block    "start"
-                                             :inline   "center"}]})))
+      :scroll/scroll-into ["xgo-categories--container" {:behavior "smooth"
+                                                        :block    "start"
+                                                        :inline   "start"}]})))
 
 (r/reg-event-fx
  :type.view/get-price-qoute!

@@ -9,8 +9,8 @@
 (defn dimension [icon num]
   [:div {:class "xgo-model-card--dimension"}
     [x.elements/icon {:icon  icon
-                      :class :xgo-model-card--dimension-icon}]
-    [:div {:class "xgo-model-card--label"} num]])
+                      :class "xgo-model-card--dimension-icon"}]
+    [:div {:class "xgo-model-card--dimension-label"} num]])
 
 (defn model-dimensions []
  [:div {:class "xgo-model-card--dimensions"}
@@ -29,9 +29,9 @@
  [:button {:key      id
            :on-click #(r/dispatch [:models/select! name])}
    [:div {:class "xgo-model-card"}
-     [model-dimensions model-data]
      [model-name       name]
-     [model-thumbnail  thumbnail]]])
+     [model-thumbnail  thumbnail]
+     [model-dimensions model-data]]])
   
 (defn- models [{:keys [models-data]}]
   [:div {:id "xgo-models"}

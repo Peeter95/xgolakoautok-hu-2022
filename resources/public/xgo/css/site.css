@@ -149,6 +149,42 @@
 
 /*** Scheme Table ***/
 
+/*** Pages ***/
+
+#mt-website-page {
+  min-height: calc(100vh - 113px);
+}
+
+#mt-website-page--title {
+  align-items: center;
+  display: flex;
+  font-family: 'Poppins';
+  font-size: 30px;
+  font-weight: 200;
+  letter-spacing: 3px;
+  line-height: 30px;
+  padding: 120px 0 60px 0;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+#mt-website-page--wrapper {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+#mt-website-page--body {
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  font-size: var(--font-size-s);
+  padding: 24px;
+  max-width: 1024px;
+}
+
+/*** Pages ***/
+
 /***** Utils *****/
 /******************************************************************************/
 
@@ -168,25 +204,31 @@
 /******************************************************************************/
 /***** Navbar *****/
 
-#si-navbar {
+#mt-navbar {
   height: 75px;
   padding: 0 24px;
-  transition: background-color .2s;
+  transition: background-color .2s, transform .3s;
 }
 
-#si-navbar[data-scrolled="false"] {
-  background-color: hsl(0deg 0% 100% / 0%);
+#mt[data-websitepage=true] #mt-navbar {
+  transform: translateY(0%);
 }
 
-#si-navbar[data-scrolled="true"] {
-  background-color: hsl(0deg 0% 100% / 80%);
+#mt-navbar[data-scrolled="false"] {
+  background-color: rgba(255, 255, 255, 0.607);
+  transform: translateY(-100%);
 }
 
-#si-navbar--menu-items {
+#mt-navbar[data-scrolled="true"] {
+  background-color: rgba(255, 255, 255, 0.942);
+  transform: translateY(0%);
+}
+
+#mt-navbar .mt-menu--menu-items {
   gap: 50px;
 }
 
-.si-navbar--menu-item {
+#mt-navbar .mt-menu--menu-item {
   color: #333;
   font-family: 'Poppins';
   font-size: 12px;
@@ -195,51 +237,50 @@
   text-transform: uppercase;
 }
 
-#si-navbar .si-effect--underline::before {
+#mt-navbar .mt-effect--underline::before {
   bottom: 0px;
   --underline-color: #333;
+}
+
+#mt-navbar--logo {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
 /***** Navbar *****/
 /******************************************************************************/
 
 
-
 /******************************************************************************/
 /***** Sidebar *****/
 
-#si-sidebar--content {
+#mt-sidebar--content {
   align-items: center;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-#sp-sidebar--menu-items {
+#mt-sidebar .mt-menu--menu-items {
   display: flex;
   flex-direction: column;
   gap: 50px;
 }
 
-.sp-sidebar--menu-item {
+#mt-sidebar .mt-menu--menu-item {
   color: #333;
   font-family: 'Poppins';
   font-size: 12px;
   font-weight: 600;
   letter-spacing: 1.5px;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
 }
 
-#si-sidebar .si-effect--underline::before {
-  --underline-color: #333;
-  bottom: 0px;
-}
-
 /***** Sidebar *****/
 /******************************************************************************/
-
-
 
 /******************************************************************************/
 /***** Section *****/
@@ -264,14 +305,14 @@
   background-image: url(/xgo/img/hero.jpg);
   background-attachment: fixed;
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center 70%;
   background-clip: content-box;
   background-size: cover;
   overflow: hidden;
   display: flex;
   height: 100vh;
-  padding: 25px;
-  border-radius: 50px;
+  padding: 50px;
+  border-radius: 70px;
 }
 
 #xgo-hero--header {
@@ -280,15 +321,23 @@
   width: 100%;
   flex-direction: column;
   align-items: center;
-  top: 10%;
-  z-index: 1;
+  top: 8%;
+  transition: opacity .3s;
+}
+
+#xgo-hero--header[data-hidden=true] {
+  opacity: 0;
+}
+
+#xgo-hero--header[data-hidden=false] {
+  opacity: 1;
 }
 
 #xgo-hero--logo {
   aspect-ratio: 1/1;
   background-size: contain;
   background-repeat: no-repeat;
-  background-image: url("/xgo/img/logo.png");
+  /* background-image: url("/xgo/img/logo.png"); */
   width: 100px;
 }
 
@@ -302,6 +351,13 @@
   text-align: center;
 }
 
+@media only screen and (max-width: 600px) {
+  #xgo-hero {
+    padding: 0;
+    border-radius: 0;
+  }
+}
+
 /***** Hero *****/
 /******************************************************************************/
 
@@ -313,6 +369,10 @@
 #xgo-contacts {
   min-height: 50vh;
   background-color: #78abca;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #xgo-contacts--background {
@@ -321,6 +381,7 @@
   background-size: cover;
   border-bottom: 3px solid rgb(158, 195, 251);
   height: 800px;
+  width: 100%;
 }
 
 #xgo-social-media-links {
@@ -359,12 +420,37 @@
 /******************************************************************************/
 
 
+#xgo-footer {
+  background-color: #2d2925;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+#xgo-footer .mt-menu--menu-items {
+  color: #bbb;
+  font-family: 'Poppins';
+  font-size: 12px;
+  font-weight: 600;
+  gap: 30px;
+  justify-content: center;
+  letter-spacing: 1.5px;
+  padding: 25px 0 10px 0;
+  text-transform: uppercase;
+}
+
+@media only screen and (max-width: 450px) {
+  #xgo-footer .mt-menu--menu-items {
+    flex-direction: column;
+    align-items: center;
+  }
+}
 
 /******************************************************************************/
 /***** Categories *****/
 
 #xgo-categories--container {
-  margin-bottom: 80px;
+  padding: 75px 0;
 }
 
 #xgo-categories {
@@ -377,19 +463,22 @@
   display: flex;
   justify-content: center;
   white-space: nowrap;
-  font-weight: 500;
-  font-size: var( --font-size-l );
+  font-weight: 600;
+  font-size: var( --font-size-s );
   height: 62px;
   line-height: 30px;
   padding: 15px 30px 15px 30px;
   text-transform: uppercase;
+}
+.xgo-category--button:hover {
+  opacity: 0.8;
 }
 
 .xgo-category--button[data-selected=true]::before {
   content: "";
   display: block;
   position: absolute;
-  bottom: 0px;
+  bottom: 10px;
   width: 100%;
   height: 2px;
   background-color: #46d2ff;
@@ -400,7 +489,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-size: var( --font-size-l );
+  font-size: var( --font-size-m );
   font-weight: 500;
   line-height: 30px;
   letter-spacing: var( --letter-spacing-l );
@@ -408,6 +497,7 @@
 }
 
 #xgo-categories--thumbnail-container {
+  opacity: 0.5;
   margin-top: 70px;
   border-bottom: 2px solid gray;
 }
@@ -417,12 +507,24 @@
   margin: 0 auto;
 }
 
+#xgo-categories--thumbnail > img {
+  height: 180px;
+}
+
 @media only screen and (max-width: 840px) {
   #xgo-categories {
     justify-content: unset;
   }
-
 }
+
+@media only screen and (max-width: 500px) {
+  #xgo-categories--thumbnail > img {
+    height: auto;
+    width: 90%;
+    margin: 0 auto;
+  }
+}
+
 /***** Categories *****/
 /******************************************************************************/
 
@@ -442,9 +544,13 @@
   align-items: center;
   width: 280px;
   gap: 15px;
-  padding: 12px;
+  padding: 24px 12px 12px 12px;
   border-radius: 6px;
   background-color: #d3d3d3;
+}
+
+.xgo-model-card:hover {
+  opacity: 0.8;
 }
 
 .xgo-model-card--name {
@@ -470,6 +576,8 @@
 }
 
 .xgo-model-card--dimension-label {
+  font-size: var(--font-size-s);
+  font-weight: 500;
 }
 
 .xgo-model-card--thumbnail {
@@ -511,7 +619,8 @@
 
 .xgo-type--name {
   color: var( --grey-dark );
-  font-size: var( --font-size-l );
+  font-size: var( --font-size-s );
+  font-weight: 500;
   text-align: center;
 }
 
@@ -533,11 +642,16 @@
   font-size: 18px;
 }
 
+#xgo-type--price-quote-button:hover {
+  opacity: 0.8;
+}
+
 #xgo-type--layout {
-  /* margin: 80px 0; */
   padding: 0 25px;
   display: grid;
   align-items: center;
+  font-size: var(--font-size-s);
+  font-weight: 500;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
 }
@@ -563,8 +677,12 @@
   align-items: center;
 }
 
+.xgo-type--file-container:hover {
+  opacity: 0.8;
+}
+
 .xgo-type--file-icon {
-  font-size: 28px;
+  font-size: 23px;
 }
 
 .xgo-type--file-data {
@@ -573,9 +691,13 @@
   align-items: center;
 }
 
-.xgo-type--file-name {}
+.xgo-type--file-name {
+  font-size: var(--font-size-m);
+  font-weight: 500;
+}
 
 .xgo-type--file-size {
+  font-size: var(--font-size-xs);
   color: var( --grey-dark );
 }
 
@@ -585,7 +707,12 @@
 }
 
 #xgo-type--back-button {
-  font-size: 22px;
+  font-size: var(--font-size-m);
+  font-weight: 500;
+}
+
+#xgo-type--back-button:hover {
+  opacity: 0.8;
 }
 
 @media only screen and (max-width: 840px) {
@@ -712,9 +839,10 @@
 .mt-stepper--step-label {
   display: flex;
   gap: 8px;
+  font-size: var(--font-size-s);
   align-items: center;
   border-radius: 6px;
-  padding: 8px 16px;
+  padding: 8px 24px 8px 16px;
   cursor: auto;
 }
 

@@ -16,20 +16,8 @@
  :init
  (fn [{:keys [db]} [_]]
    (if-not (empty? (router/get-current-route-path-params db))
-      {:scroll/scroll-into ["xgo-categories"]}
+      {:scroll/scroll-into ["xgo-categories--container"]}
       {})))
-
-(defn credits
-  []
-  [:div {:style {:background "#2d2925" :padding "15px 0 15px 0" :color "#9ec3fb"}}
-    ;; [components/credits {:theme :dark}]
-    [components/created-by-link ::created-by-link {:theme :dark}]])
-
-(defn- footer []
- (let [footer-menu @(r/subscribe [:x.db/get-item [:website-content :handler/transfered-content :footer-menu]])]
-    [:div {:id "xgo-footer"}
-      [components/menu ::footer-menu {:menu-link footer-menu}]
-      [credits]]))
       
 (defn view
   []
@@ -44,5 +32,5 @@
           [sections/types]
           [sections/models])
         [categories/thumbnail]
-        [sections/contacts]
-        [footer]])}))
+        [sections/contacts]])}))
+        ;; [footer]])}))
