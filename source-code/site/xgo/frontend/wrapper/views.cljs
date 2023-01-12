@@ -47,14 +47,14 @@
 (defn credits
   []
   [:div {:style {:background "#2d2925" :padding "15px 0 15px 0" :color "#9ec3fb"}}
-    ;; [components/credits {:theme :dark}]
-   [components/created-by-link ::created-by-link {:theme :dark}]])
+    [components/created-by-link ::created-by-link {:theme :dark}]])
 
-(defn- footer []
+(defn- footer 
+  []
   (let [footer-menu @(r/subscribe [:x.db/get-item [:website-content :handler/transfered-content :footer-menu]])]
      [:div {:id "xgo-footer"}
-      [components/menu ::footer-menu {:menu-link footer-menu}]
-      [credits]]))
+       [components/menu ::footer-menu {:menu-link footer-menu}]
+       [credits]]))
 
 ;; --- Footer ---
 
@@ -64,14 +64,17 @@
 (defn wrapper
   ; @param (symbol) ui-structure
   [ui-structure]
-  (let [website-page?  @(r/subscribe [:website-pages.handler/on-page?])]
-    [:div#mt {:data-websitepage website-page?}
-      [ui-structure]
-      [footer]
-      [header]
-      [sidebar]]))
+  [:div#mt
+    [ui-structure]
+    [footer]
+    [header]
+    [sidebar]])
 
 (defn view
   ; @param (symbol) ui-structure
   [ui-structure]
-  [wrapper ui-structure])
+  (let [use-wrap? @(r/subscribe [:wrapper/use?])]
+    (if use-wrap?
+      [wrapper ui-structure]
+      [:div#mt [ui-structure]]))) 
+ 
