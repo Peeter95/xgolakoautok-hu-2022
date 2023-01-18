@@ -6,7 +6,6 @@
             [x.components.api :as x.components]))
  
 ;; -----------------------------------------------------------------------------
-;; -----------------------------------------------------------------------------
 ;; ----- Header -----
 
 (defn- step-label [index current-step [step-id {:keys [valid?]}]]
@@ -17,7 +16,7 @@
               :data-selected selected?
               :disabled      (not valid?)
               :on-click      #(r/dispatch [:stepper/select! index])}
-       [:span {:style {:font-size "24px" :height "24px" :width "24px"}} index]
+       [:span {:style {:font-size "24px" :height "24px" :width "24px"}} (inc index)]
        [:span (if (string? step-id)
                 (str step-id)
                 (x.components/content step-id))]]))
@@ -86,7 +85,6 @@
                         :background-color :primary
                         :on-click #(on-click)
                         :style    {:padding "15px"}
-
                         :label    (get config :finish-step-label "Finish")}]))
 
 (defn- footer [{:keys [index steps] :as view-props}]
