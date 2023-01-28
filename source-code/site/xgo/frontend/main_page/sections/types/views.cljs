@@ -3,7 +3,9 @@
   (:require [re-frame.api                     :as r]
             [reagent.api                      :as reagent]
             [site.components.frontend.api     :as site.components]
-            [site.xgo.components.frontend.api :as xgo.components]))
+            [site.xgo.components.frontend.api :as xgo.components]
+            [io.api                           :as io]
+            [format.api                       :as format]))
 
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
@@ -55,18 +57,19 @@
                                    :scheme-id   :vehicle-types.technical-data
                                    :value-path  [:site :types id]}]])
 
-(defn- type-file [file-name file-size]
- [:a {:href "/" :class "xgo-type--file-container"}
-   [:i {:class "xgo-type--file-icon fas fa-file-pdf"}]
-   [:div {:class "xgo-type--file-data"}
-     [:span {:class "xgo-type--file-name"} file-name]
-     [:span {:class "xgo-type--file-size"} file-size " kB"]]]) 
+(defn- type-file [{:media/keys [alias uri size] :as props}]
+  (let [file-size (-> size io/B->MB format/decimals (str " MB"))]
+    [:a {:class    "xgo-type--file-container"
+         :href     uri 
+         :download true} 
+      [:i {:class "xgo-type--file-icon fas fa-file-pdf"}]
+      [:div {:class "xgo-type--file-data"}
+        [:span {:class "xgo-type--file-name"} alias]
+        [:span {:class "xgo-type--file-size"} file-size]]])) 
     
-
-(defn- type-files []
+(defn- type-files [{:media/keys [alias] :as files}]
   [:div {:class "xgo-type--files-container"}
-    [type-file "árslista 2022" "220.21"]
-    [type-file "teszt file 2021" "320.21"]])
+    (map type-file files)])
 
 (defn- type-back-button []
   [:div {:id "xgo-type--back-button-container"}
@@ -83,13 +86,13 @@
   (reagent/lifecycles 
    {:component-did-mount (fn [] (r/dispatch [:types/select! name]))
     :reagent-render 
-    (fn [{:keys [id images] :as data}]
+    (fn [{:keys [id images files] :as data}]
       [:div {:key id
              :id  "xgo-type"}
         [:div {:id "xgo-type--layout"} 
           [type-images images]
           [type-table id]]
-        [type-files]
+        [type-files files]
         [type-back-button]])}))
 
 (defn- types [{:keys [types-data selected-type] :as view-props}]

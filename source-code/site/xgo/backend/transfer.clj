@@ -51,15 +51,35 @@
 ;; -----------------------------------------------------------------------------
 
 (def types-projection
-    {:projection #:type{:added-at    0
-                        :added-by    0
-                        :modified-at 0
-                        :modified-by 0}})
+    {"type/added-at"    0
+     "type/added-by"    0
+     "type/modified-at" 0
+     "type/modified-by" 0})
 
+(def types-media-files-projection
+     {"_id"               0
+      "media/path"        0
+      "media/added-at"    0
+      "media/modified-at" 0
+      "media/added-by"    0
+      "media/modified-by" 0})
+
+(def vehicle-types-pipeline 
+  [{:$unwind "$type/files"}
+   {:$lookup {:from     "storage"
+              :as       "type/files"
+              :let      {"fileId"  {"$toObjectId" "$type/files.media/id"}
+                         "fileUri" "$type/files.media/uri"}
+              :pipeline [{"$match"     {"$expr" {"$eq" ["$_id" "$$fileId"]}}}
+                         {"$addFields" {"media/uri" "$$fileUri"}}
+                         {"$project"   types-media-files-projection}]}}
+   {:$project   types-projection}])
+                  
+                  
 (defn transfer-types-f
   [request]
-  (let [data (mongo-db/get-collection "vehicle_types" types-projection)]
-    (convert #(-> % :type/id) data)))
+  (let [documents (mongo-db/get-documents-by-pipeline "vehicle_types" vehicle-types-pipeline)]
+    (convert #(-> % :type/id) documents)))
 
 (x.core/reg-transfer! ::transfer-types!
   {:data-f      transfer-types-f
