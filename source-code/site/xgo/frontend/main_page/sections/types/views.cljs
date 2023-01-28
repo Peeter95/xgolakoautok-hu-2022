@@ -95,7 +95,7 @@
 (defn- types [{:keys [types-data selected-type] :as view-props}]
   [:div {:id "xgo-type--container"}
     [header view-props]
-    [get-price-quote-button selected-type]
+    ;; [get-price-quote-button selected-type]
     [vehicle-type selected-type]])
 
 ;; -----------------------------------------------------------------------------
