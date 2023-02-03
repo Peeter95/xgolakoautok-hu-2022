@@ -30,7 +30,7 @@
        [:a {:href "/" :id :xgo-navbar--logo :data-clickable true :on-mouse-up #(x.environment/blur-element!)}
            [:div#xgo-navbar--container
              [:div#xgo-navbar--website-name   website-name]
-             [:div#xgo-navbar--slogan website-slogan]]]))
+             [:div#xgo-navbar--website-slogan website-slogan]]]))
 
 (defn header
   []

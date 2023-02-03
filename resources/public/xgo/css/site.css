@@ -227,6 +227,18 @@
 #mt-navbar[data-scrolled="true"] #mt-navbar--logo {
   transform: translateY(0%);
 }
+
+#xgo-navbar--website-name {
+  color: #008fc5;
+  font-weight: 500;
+  font-size: 18px;
+}
+
+#xgo-navbar--website-slogan {
+  font-size: 16px;
+  font-weight: 500;
+}
+
 #mt-navbar .mt-menu--menu-items {
   gap: 50px;
 }
@@ -234,7 +246,7 @@
 #mt-navbar .mt-menu--menu-item {
   color: #333;
   font-family: 'Poppins';
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-transform: uppercase;
@@ -277,7 +289,7 @@
 #mt-sidebar .mt-menu--menu-item {
   color: #333;
   font-family: 'Poppins';
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 600;
   letter-spacing: 1.5px;
   text-align: center;
@@ -374,7 +386,7 @@
 
 #xgo-contacts {
   min-height: 50vh;
-  background-color: #78abca;
+  background-color: #77aac8;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -383,7 +395,7 @@
 
 #xgo-contacts--background {
   background-image: url(/xgo/img/footer.jpg);
-  background-position: bottom;
+  background-position: top;
   background-size: cover;
   border-bottom: 3px solid rgb(158, 195, 251);
   height: 800px;
@@ -457,6 +469,17 @@
 
 #xgo-categories--container {
   padding: 75px 0;
+}
+
+#xgo-categories--container::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 20px;
+  left: calc(50% - 50px);
+  height: 2px;
+  width: 100px;
+  background-color: #dedede;
 }
 
 #xgo-categories {
