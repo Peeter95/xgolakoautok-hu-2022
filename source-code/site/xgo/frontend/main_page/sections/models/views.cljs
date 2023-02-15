@@ -10,12 +10,14 @@
   [:div {:class "xgo-model-card--dimension"}
     [x.elements/icon {:icon  icon
                       :class "xgo-model-card--dimension-icon"}]
-    [:div {:class "xgo-model-card--dimension-label"} num]])
+    [:div {:class "xgo-model-card--dimension-label"} (first num)]])
 
-(defn model-dimensions []
- [:div {:class "xgo-model-card--dimensions"}
-   [dimension "airline_seat_recline_normal" 4]
-   [dimension "airline_seat_flat" 2]]) 
+(defn model-dimensions [types]
+ (if types
+  (let [{:type/keys [seat bed]} @(r/subscribe [:models.type/dimension types])]
+   [:div {:class "xgo-model-card--dimensions"}
+     [dimension "airline_seat_recline_normal" seat]
+     [dimension "airline_seat_flat" bed]]))) 
 
 (defn model-name [name]
   [:p {:class "xgo-model-card--name"}
@@ -25,13 +27,13 @@
    [:img {:class "xgo-model-card--thumbnail"
           :src   uri}])
 
-(defn- model [[id {:keys [name thumbnail] :as model-data}]]
+(defn- model [[id {:keys [name thumbnail types] :as model-data}]]
  [:button {:key      id
            :on-click #(r/dispatch [:models/select! name])}
    [:div {:class "xgo-model-card"}
      [model-name       name]
      [model-thumbnail  thumbnail]
-     [model-dimensions model-data]]])
+     [model-dimensions types]]])
   
 (defn- models [{:keys [models-data]}]
   [:div {:id "xgo-models"}

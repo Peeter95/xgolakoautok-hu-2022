@@ -53,5 +53,17 @@
   (fn [{:keys [types]} [_]]
     (mapv :type/id types)))
 
+(r/reg-sub
+  :models.type/dimension
+  :<- [:types/all]
+  (fn [types [_ type-ids]]
+    (let [ids (mapv :type/id type-ids)
+          [_ type] (first (select-keys types ids))]
+      {:type/seat (get type :q68db95dd-892b-4a20-a275-7ae154c44a05 [0])
+       :type/bed  (get type :qfdd4d5a4-0628-40a0-83c8-4e5752d71311 [0])}))) 
+   
+; seat :q68db95dd-892b-4a20-a275-7ae154c44a05
+; bed :qfdd4d5a4-0628-40a0-83c8-4e5752d71311
+
 ;; ----- Models -----
 ;; -----------------------------------------------------------------------------
