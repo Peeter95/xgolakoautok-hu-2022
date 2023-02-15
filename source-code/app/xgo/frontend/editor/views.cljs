@@ -61,9 +61,9 @@
                               :crumbs      [{:label :app-home :route "/@app-home"}
                                             {:label :website-content}]
                               :menu-items  [{:label :basic-data :change-keys [:website-name :website-slogan :website-logo]}
-                                            {:label :menus      :change-keys [:header-menu :footer-menu]}
-                                            {:label :selling    :change-keys [:brands]}
-                                            {:label :about-us   :change-keys [:about-us-section :about-us-page]}]}])
+                                            {:label :menus      :change-keys [:header-menu :footer-menu]}]}])
+                                            ;; {:label :selling    :change-keys [:brands]}
+                                            ;; {:label :about-us   :change-keys [:about-us-section :about-us-page]}]}])
 
 ;; ----------------------------------------------------------------------------
 ;; ----------------------------------------------------------------------------
