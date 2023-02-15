@@ -64,6 +64,23 @@
       "media/added-by"    0
       "media/modified-by" 0})
 
+(def vehicle-types-pipeline-2
+ [{:$unwind     "$type/files"}
+  {:$lookup     {"from"     "storage"
+                 "let"      {"fileId" {"$toObjectId" "$type/files.media/id"}}
+                 "pipeline" [{"$match"   {"$expr" {"$eq" ["$_id" "$$fileId"]}}}
+                             {"$project" types-media-files-projection}]
+                 "as"       "files_data"}}
+  {:$addFields  {"files" {"$arrayElemAt" ["$files_data" 0]}}}
+  {:$group      {:_id         "$_id"
+                 :otherFields {"$first" "$$ROOT"}
+                 :files       {"$push"  "$files"}}}
+  {:$replaceRoot {"newRoot" {"$mergeObjects" ["$otherFields" {"type/files" "$files"}]}}}
+  {:$project     {"otherFields" 0
+                  "files_data"  0
+                  "files"       0}}])
+ 
+
 (def vehicle-types-pipeline 
   [{:$unwind "$type/files"}
    {:$lookup {:from     "storage"
@@ -78,8 +95,9 @@
                   
 (defn transfer-types-f
   [request]
-  (let [documents (mongo-db/get-documents-by-pipeline "vehicle_types" vehicle-types-pipeline)]
-    (convert #(-> % :type/id) documents)))
+  (time (let [documents (mongo-db/get-documents-by-pipeline "vehicle_types" vehicle-types-pipeline-2)]
+          (mapv #(println % "\n") documents)
+          (convert #(-> % :type/id) documents))))
 
 (x.core/reg-transfer! ::transfer-types!
   {:data-f      transfer-types-f
