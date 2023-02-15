@@ -45,8 +45,11 @@
         (map (fn [{:media/keys [id uri]}]
                 [:div {:style {:display "flex" :align-items "center"
                                :background-image (str "url(" uri ")")
+                               :background-repeat "no-repeat"
                                :background-position "center"
-                               :background-size "cover" :aspect-ratio "16/10" :width "100%"}}])
+                               :background-size "contain" 
+                               :aspect-ratio "16/10" 
+                               :width "100%"}}])
                   ;;  [:img {:src uri :style {}}]])
              images)]]))
 
