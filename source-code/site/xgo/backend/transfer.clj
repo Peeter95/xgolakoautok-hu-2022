@@ -83,9 +83,9 @@
                   "files"       0}}])
                   
 (defn transfer-types-f
-  [request]
-  (time (let [documents (mongo-db/get-documents-by-pipeline "vehicle_types" vehicle-types-pipeline-2)]
-          (convert #(-> % :type/id) documents))))
+  [_]
+  (let [documents (mongo-db/get-documents-by-pipeline "vehicle_types" vehicle-types-pipeline-2)]
+    (convert #(-> % :type/id) documents)))
 
 (x.core/reg-transfer! ::transfer-types!
   {:data-f      transfer-types-f
