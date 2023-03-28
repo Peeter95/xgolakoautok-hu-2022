@@ -26,7 +26,7 @@
 
 (r/reg-sub
  :types/selected
- :<- [:types/all]
+ :<- [:types/by-model]
  :<- [:filters/type]
  (fn [[types filters-type] [_]]
     (let [result  (->> types
