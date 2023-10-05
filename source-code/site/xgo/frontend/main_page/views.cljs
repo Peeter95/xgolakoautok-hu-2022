@@ -14,15 +14,15 @@
 
 (r/reg-event-fx
  :init
- (fn [{:keys [db]} [_]]
-   (if-not (empty? (router/get-current-route-path-params db))
-      {:scroll/scroll-into ["xgo-categories--container"]}
-      {})))
+ (fn [{:keys [db]} [_ scroll-target]]
+   (if-not (nil? scroll-target);(empty? (router/get-current-route-path-params db))
+     {:scroll/scroll-into [(name scroll-target)]}
+     {})))
       
 (defn view
-  []
+  [& [scroll-target]]
   (reagent/lifecycles 
-   {:component-did-mount (fn [] (r/dispatch [:init]))
+   {:component-did-mount (fn [] (r/dispatch [:init scroll-target]))
     :reagent-render 
     (fn [] 
       [:div#xgo

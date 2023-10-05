@@ -19,20 +19,24 @@
                     {:client-event   [:main-page/load-page!]
                      :js-build       :site
                      :route-template "/"})
+           (r xyz % :main-page.contacts/route
+                    {:client-event   [:main-page/load-page! :xgo-contacts]
+                     :js-build       :site
+                     :route-template "/kapcsolat"})
            (r xyz % :main-page.vehicles/route
-                    {:client-event   [:main-page/load-page!]
+                    {:client-event   [:main-page/load-page! :xgo-categories--container]
                      :js-build       :site
                      :route-template "/jarmuvek"})
            (r xyz % :main-page.vehicles.category/route
-                    {:client-event   [:main-page/load-page!]
+                    {:client-event   [:main-page/load-page! :xgo-categories--container]
                      :js-build       :site
                      :route-template "/jarmuvek/:category"})
            (r xyz % :main-page.vehicles.model/route
-                    {:client-event   [:main-page/load-page!]
+                    {:client-event   [:main-page/load-page! :xgo-categories--container]
                      :js-build       :site
                      :route-template "/jarmuvek/:category/:model"})
            (r xyz % :main-page.vehicles.type/route
-                    {:client-event   [:main-page/load-page!]
+                    {:client-event   [:main-page/load-page! :xgo-categories--container]
                      :js-build       :site
                      :route-template "/jarmuvek/:category/:model/:type"}))}))
 
