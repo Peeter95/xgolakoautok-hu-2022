@@ -2,7 +2,7 @@
 {:source-paths ["source-code"]
  :builds
  {:site.dev   {:compiler-options {:infer-externs true :output-feature-set :es-next}
-               :devtools         {:watch-dir "resources" :after-load sample.frontend.site/render-site!}
+               :devtools         {:watch-dir "resources/public" :after-load sample.frontend.site/render-site!}
                :modules          {:site {:init-fn sample.frontend.site/start-site!}}
             ;;    :asset-path       "/site/core"
                :output-dir       "resources/public/js/core"
