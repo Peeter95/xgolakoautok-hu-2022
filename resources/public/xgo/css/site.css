@@ -1,4 +1,3 @@
-
 /*******************************************3***********************************/
 /***** Website *****/
 
@@ -80,17 +79,22 @@
 }
 
 @media only screen and (max-width: 800px) {
-.mt-contacts--email-address,
-.mt-contacts--phone-number,
-.mt-contacts--company-address {
-  font-size: 15px;
-}}
+
+  .mt-contacts--email-address,
+  .mt-contacts--phone-number,
+  .mt-contacts--company-address {
+    font-size: 15px;
+  }
+}
 
 @media only screen and (max-width: 600px) {
-  .mt-contacts--address-group, .mt-contacts--contact-group {
+
+  .mt-contacts--address-group,
+  .mt-contacts--contact-group {
     width: auto;
   }
-  #mt-contacts--address-data-information, 
+
+  #mt-contacts--address-data-information,
   #mt-contacts--contacts-data-information {
     min-width: unset;
     text-align: center;
@@ -112,7 +116,7 @@
 .mt-scheme-table--header {
   text-align: center;
   padding: 16px 0;
-  background-color: rgba(0,0,0,0.05);
+  background-color: rgba(0, 0, 0, 0.05);
   border-bottom: 1px solid lightgray;
   font-weight: 500;
 }
@@ -133,8 +137,7 @@
   font-weight: 500;
 }
 
-.mt-scheme-table tbody {
-}
+.mt-scheme-table tbody {}
 
 .mt-scheme-table th,
 .mt-scheme-table td {
@@ -307,9 +310,7 @@
   height: 100%;
 }
 
-.xgo-section--title {
-
-}
+.xgo-section--title {}
 
 /***** Section *****/
 /******************************************************************************/
@@ -364,7 +365,7 @@
   font-size: 22px;
   font-weight: 500;
   letter-spacing: 5px;
-  line-height: var( --line-height-xl );
+  line-height: var(--line-height-xl);
   text-transform: uppercase;
   text-align: center;
 }
@@ -398,7 +399,7 @@
   background-position: top;
   background-size: cover;
   border-bottom: 3px solid rgb(158, 195, 251);
-  height: 800px;
+  height: 1200px;
   width: 100%;
 }
 
@@ -485,7 +486,7 @@
 #xgo-categories {
   display: flex;
   justify-content: center;
-  border-bottom: 2px solid var( --grey-dark );
+  border-bottom: 2px solid var(--grey-dark);
 }
 
 .xgo-category--button {
@@ -493,12 +494,13 @@
   justify-content: center;
   white-space: nowrap;
   font-weight: 600;
-  font-size: var( --font-size-s );
+  font-size: var(--font-size-s);
   height: 62px;
   line-height: 30px;
   padding: 15px 30px 15px 30px;
   text-transform: uppercase;
 }
+
 .xgo-category--button:hover {
   opacity: 0.8;
 }
@@ -514,14 +516,14 @@
 }
 
 #xgo-categories--description {
-  color: var( --grey-dark );
+  color: var(--grey-dark);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  font-size: var( --font-size-m );
+  font-size: var(--font-size-m);
   font-weight: 500;
   line-height: 30px;
-  letter-spacing: var( --letter-spacing-l );
+  letter-spacing: var(--letter-spacing-l);
   padding: 15px 0;
 }
 
@@ -536,7 +538,7 @@
   margin: 0 auto;
 }
 
-#xgo-categories--thumbnail > img {
+#xgo-categories--thumbnail>img {
   height: 180px;
 }
 
@@ -547,7 +549,7 @@
 }
 
 @media only screen and (max-width: 500px) {
-  #xgo-categories--thumbnail > img {
+  #xgo-categories--thumbnail>img {
     height: auto;
     width: 90%;
     margin: 0 auto;
@@ -633,9 +635,9 @@
 }
 
 #xgo-type--model-name {
-  font-size: var( --font-size-xxl );
+  font-size: var(--font-size-xxl);
   font-weight: 500;
-  line-height: var( --line-height-xxl );
+  line-height: var(--line-height-xxl);
   text-align: center;
 }
 
@@ -647,15 +649,13 @@
 }
 
 .xgo-type--name {
-  color: var( --grey-dark );
-  font-size: var( --font-size-s );
+  color: var(--grey-dark);
+  font-size: var(--font-size-s);
   font-weight: 500;
   text-align: center;
 }
 
-.xgo-type--name-button {
-
-}
+.xgo-type--name-button {}
 
 .xgo-type--name-button[data-selected="true"] {
   color: black;
@@ -727,7 +727,7 @@
 
 .xgo-type--file-size {
   font-size: var(--font-size-xs);
-  color: var( --grey-dark );
+  color: var(--grey-dark);
 }
 
 #xgo-type--back-button-container {
@@ -806,7 +806,7 @@
 }
 
 .mt-price-quote--lister-container {
-  display: flex; 
+  display: flex;
   gap: 25px;
   flex-direction: column;
   max-height: 440px;
@@ -838,8 +838,8 @@
   overflow: hidden;
   display: -webkit-box;
   -webkit-box-orient: vertical;
-  -webkit-line-clamp: 3; 
-  white-space: pre-wrap; 
+  -webkit-line-clamp: 3;
+  white-space: pre-wrap;
 }
 
 .mt-price-quote--list-item-quantity {
@@ -975,7 +975,7 @@
 }
 
 .tabs--button:hover {
- /* background-color: hsl(0deg 0% 75%); */
+  /* background-color: hsl(0deg 0% 75%); */
 }
 
 .tabs--button:hover::after {
@@ -986,9 +986,11 @@
   /* background-color: hsl(0deg 0% 80%); */
   /* color: var(--tabs-color) */
 }
+
 .tabs--button[data-active=true]::before {
   display: block;
 }
+
 .tabs--button[data-active=true]::after {
   transform: scale(1);
 }
