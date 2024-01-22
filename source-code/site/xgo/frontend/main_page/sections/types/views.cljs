@@ -43,7 +43,9 @@
     [:div {:id "xgo-type--images"}
       [xgo.components/slider
         (map (fn [{:media/keys [id uri]}]
-                [:div {:style {:display "flex" :align-items "center"
+                [:div {:key   id
+                       :style {:display "flex" 
+                               :align-items "center"
                                :background-image (str "url(" uri ")")
                                :background-repeat "no-repeat"
                                :background-position "center"
@@ -63,6 +65,7 @@
 (defn- type-file [{:media/keys [alias uri size] :as props}]
   (let [file-size (-> size io/B->MB format/decimals (str " MB"))]
     [:a {:class    "xgo-type--file-container"
+         :key      uri
          :href     uri 
          :download true} 
       [:i {:class "xgo-type--file-icon fas fa-file-pdf"}]

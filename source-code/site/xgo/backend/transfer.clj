@@ -69,9 +69,11 @@
                  :preserveNullAndEmptyArrays true}}
    
   {:$lookup     {"from"     "storage"
-                 "let"      {"fileId" {"$toObjectId" "$type/files.media/id"}}
+                 "let"      {"fileId" {"$toObjectId" "$type/files.media/id"}
+                             "uri"    "$type/files.media/uri"}
                  "pipeline" [{"$match"   {"$expr" {"$eq" ["$_id" "$$fileId"]}}}
-                             {"$project" types-media-files-projection}]
+                             {"$project" types-media-files-projection}
+                             {"$addFields" {"media/uri" "$$uri"}}]
                  "as"       "files_data"}}
   {:$addFields  {"files" {"$arrayElemAt" ["$files_data" 0]}}}
   {:$group      {:_id         "$_id"
