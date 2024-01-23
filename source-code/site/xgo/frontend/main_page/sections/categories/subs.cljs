@@ -3,6 +3,15 @@
   (:require [re-frame.api         :as r]
             [normalize.api :as normalize]))
 
+
+(defn- db->category [db]
+  (if-let [category (get-in db [:filters :category])]
+    category   
+    (-> db
+        (get-in [:site :categories])
+        keys
+        first)))
+
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
 ;; ----- Filters -----
@@ -10,7 +19,8 @@
 (r/reg-sub 
   :filters/category 
   (fn [db [_]]
-    (get-in db [:filters :category] "dynamic")))
+    (get-in db [:filters :category] 
+      (second (get-in db [:site :categories])))))
 
 ;; ----- Filters -----
 ;; -----------------------------------------------------------------------------
@@ -28,13 +38,13 @@
 (r/reg-sub
   :categories.selected/description
   (fn [db [_]]
-    (let [category-name (get-in db [:filters :category] "dynamic")]
+    (let [category-name (db->category db)]
       (get-in db [:site :categories category-name :description]))))
 
 (r/reg-sub
  :categories.selected/thumbnail
  (fn [db [_]]
-   (let [category-name (get-in db [:filters :category] "dynamic")]
+   (let [category-name (db->category db)]
      (get-in db [:site :categories category-name :thumbnail]))))
 
 (r/reg-sub

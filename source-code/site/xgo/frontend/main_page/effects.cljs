@@ -10,7 +10,9 @@
 
 (defn- path-params->filters [db]
   (let [path-params (router/get-current-route-path-params db)
-        filters     (if (empty? path-params) {:category "dynamic"} path-params)]
+        filters     (if (empty? path-params) 
+                       {:category (first (keys (get-in db [:site :categories])))} 
+                       path-params)]
     filters))
 
 (r/reg-event-fx :main-page/render-page!
