@@ -67,7 +67,7 @@
     [:a {:class    "xgo-type--file-container"
          :key      uri
          :href     uri 
-         :download true} 
+         :download alias} 
       [:i {:class "xgo-type--file-icon fas fa-file-pdf"}]
       [:div {:class "xgo-type--file-data"}
         [:span {:class "xgo-type--file-name"} alias]
