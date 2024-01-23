@@ -685,6 +685,16 @@
   gap: 50px;
 }
 
+#xgo-type--layout-desc-files {
+  padding: 0 25px;
+  display: grid;
+  align-items: start;
+  font-size: var(--font-size-s);
+  font-weight: 500;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
 #xgo-type--images {
   border-radius: 10px;
   overflow: hidden;
@@ -746,10 +756,19 @@
 
 @media only screen and (max-width: 840px) {
   #xgo-type--layout {
-    /* display: block; */
     padding: unset;
     grid-template-columns: 1fr;
     gap: 80px;
+  }
+
+  #xgo-type--layout-desc-files {
+    padding: unset;
+    grid-template-columns: 1fr;
+    gap: 80px;
+
+    & p {
+      padding: 0 10px;
+    }
   }
 
   #xgo-type--images {

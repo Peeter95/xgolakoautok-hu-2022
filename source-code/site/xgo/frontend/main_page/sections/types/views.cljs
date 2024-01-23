@@ -99,6 +99,9 @@
           [type-images images]
           [type-table id]]
         [type-files files]
+        [:div {:id "xgo-type--layout-desc-files"}
+          [:p (str data)]
+          [type-files files]]
         [type-back-button]])}))
 
 (defn- types [{:keys [types-data selected-type] :as view-props}]
