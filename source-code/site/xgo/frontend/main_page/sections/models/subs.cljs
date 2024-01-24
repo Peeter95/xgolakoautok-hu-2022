@@ -48,6 +48,12 @@
     (:name model)))
 
 (r/reg-sub
+  :models.selected/description
+  :<- [:models/selected]
+  (fn [model [_]]
+    (:description model)))
+
+(r/reg-sub
   :models.selected/types
   :<- [:models/selected]
   (fn [{:keys [types]} [_]]

@@ -5,7 +5,9 @@
             [site.components.frontend.api     :as site.components]
             [site.xgo.components.frontend.api :as xgo.components]
             [io.api                           :as io]
-            [format.api                       :as format]))
+            [format.api                       :as format]
+            [elements.api                     :as elements]
+            ["react"                          :as react]))
 
 ;; -----------------------------------------------------------------------------
 ;; -----------------------------------------------------------------------------
@@ -37,23 +39,86 @@
       [type-name (first (seq types-data))]
       [type-name-button-group types-data])])
 
+
+(defn- fullscreen-event-listeners []
+  (react/useEffect 
+    (fn []
+      ;; (r/dispatch [:x.environment/reg-keypress-event! :color-lab.fullscreen.event.open
+      ;;                                                 {:key-code   70
+      ;;                                                  :required?  false
+      ;;                                                  :on-keydown (fn []
+      ;;                                                                (when @(r/subscribe [:x.db/get-item [::focused]])
+      ;;                                                                  (r/dispatch [:x.db/set-item! [::fullscreen?] true])))}])
+      (.addEventListener (.getElementById js/document "xgo-type--images") 
+                         "fullscreenchange" 
+                         (fn [e]
+                           (if (.-fullscreenElement js/document)
+                              (r/dispatch [:x.db/set-item! [::fullscreen?] true])
+                              (r/dispatch [:x.db/set-item! [::fullscreen?] false]))))
+      
+      (r/dispatch [:x.environment/reg-keypress-event! :fullscreen.event.exit
+                                                      {:key-code   27
+                                                       :required? false
+                                                       :on-keydown (fn []
+                                                                     (println "exit")
+                                                                     (r/dispatch [:x.db/set-item! [::fullscreen?] false])
+                                                                     (r/dispatch [:x.db/set-item! [::fullscreen?] false]))}])
+                                                                    ;;  (.exitFullscreen (.getElementById js/document "xgo-type--images")))}])
+      (fn []
+        ;; (r/dispatch [:elements.combo-box/remove-keypress-events! :color-lab.fullscreen.event.open])
+        (r/dispatch [:elements.combo-box/remove-keypress-events! :fullscreen.event.exit])))
+    #js[]))
+
 (defn- type-images [images]
+  (fullscreen-event-listeners)
+
   (if (empty? images)
     [:div {:id "xgo-type--images"} [:p {:style {:height "400px"}} "No image"]]
-    [:div {:id "xgo-type--images"}
-      [xgo.components/slider
-        (map (fn [{:media/keys [id uri]}]
-                [:div {:key   id
-                       :style {:display "flex" 
-                               :align-items "center"
-                               :background-image (str "url(" uri ")")
-                               :background-repeat "no-repeat"
-                               :background-position "center"
-                               :background-size "contain" 
-                               :aspect-ratio "16/10" 
-                               :width "100%"}}])
-                  ;;  [:img {:src uri :style {}}]])
-             images)]]))
+
+    (let [fullscreen? @(r/subscribe [:x.db/get-item [::fullscreen?] false])]
+      [:div {:id "xgo-type--images"
+             "fullscreenchange" #(println "full screen change")}
+            ;;  :on-click #(if fullscreen?
+            ;;               (.exitFullscreen js/document)
+            ;;               (.requestFullscreen (.getElementById js/document "xgo-type--images")))}
+        [:button {:on-click #(if fullscreen?
+                                (.exitFullscreen js/document)
+                                (.requestFullscreen (.getElementById js/document "xgo-type--images")))
+                  :style    (if fullscreen? 
+                              {:position "absolute"
+                               :top   "5px"
+                               :right    "3px"
+                               :color    "white"
+                               :z-index  101}
+                              {:position "absolute"
+                               :bottom   "5px"
+                               :right    "3px"
+                               :color    "white"
+                               :z-index  101})}
+          [elements/icon {:icon (if fullscreen? :close :fullscreen)}]]
+        [xgo.components/slider {};:showThumbs fullscreen?}
+          (map (fn [{:media/keys [id uri]}]
+                   [:img {:key id :src uri :style {:display "flex" 
+                                                          :object-fit "contain"
+                                                           :align-items "center"
+                                                           :background-image (str "url(" uri ")")
+                                                           :background-repeat "no-repeat"
+                                                           :background-position "center"
+                                                           :background-size "contain" 
+                                                           :aspect-ratio "16/10" 
+                                                           :width "100%"}}])
+                  ;;  [:div {:key   id
+                  ;;         :style {:display "flex" 
+                  ;;                 :cursor "grab"
+                  ;;                        :align-items "center"
+                  ;;                        :background-image (str "url(" uri ")")
+                  ;;                        :background-repeat "no-repeat"
+                  ;;                        :background-position "center"
+                  ;;                        :background-size "contain" 
+                  ;;                        :aspect-ratio "16/10" 
+                  ;;                        :height "100%"}}])
+                     
+               images)]])))
 
 (defn- type-table [id]
   [:div {:class "mt-scheme-table--container" :style {:min-height "550px"}}
@@ -93,16 +158,23 @@
    {:component-did-mount (fn [] (r/dispatch [:types/select! name]))
     :reagent-render 
     (fn [{:keys [id images files] :as data}]
-      [:div {:key id
-             :id  "xgo-type"}
-        [:div {:id "xgo-type--layout"} 
-          [type-images images]
-          [type-table id]]
-        [type-files files]
-        [:div {:id "xgo-type--layout-desc-files"}
-          [:p (str data)]
-          [type-files files]]
-        [type-back-button]])}))
+      (let [description @(r/subscribe [:models.selected/description])]
+        [:div {:key id
+               :id  "xgo-type"}
+          [:div {:id "xgo-type--layout"} 
+            [:f> type-images images]
+            [type-table id]]
+          [:div {:id         "xgo-type--layout-desc-files"
+                 :data-files (empty? files)
+                 :data-desc  (empty? description)}
+               
+            [:div {:style {:display (when (empty? description) "none")}} 
+              [:p.label "Leírás"]
+              [:p description]]
+            [:div  {:style {:display (when (empty? files) "none")}}
+              [:p.label "Letölthető fájlok"]
+              [type-files files]]]
+          [type-back-button]]))}))
 
 (defn- types [{:keys [types-data selected-type] :as view-props}]
   [:div {:id "xgo-type--container"}

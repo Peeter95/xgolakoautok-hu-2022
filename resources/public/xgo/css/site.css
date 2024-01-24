@@ -695,6 +695,24 @@
   gap: 50px;
 }
 
+#xgo-type--layout-desc-files[data-desc=true],
+#xgo-type--layout-desc-files[data-files=true] {
+  grid-template-columns: 1fr
+}
+
+
+#xgo-type--layout-desc-files>div {
+  display: grid;
+  justify-content: center;
+  gap: 15px
+}
+
+#xgo-type--layout-desc-files .label {
+  font-size: 18px;
+  color: #888888;
+}
+
+
 #xgo-type--images {
   border-radius: 10px;
   overflow: hidden;
@@ -703,7 +721,6 @@
 }
 
 .xgo-type--files-container {
-  margin: 0 auto;
   width: fit-content;
   display: flex;
   gap: 15px;
@@ -778,6 +795,17 @@
   .mt-scheme-table--container {
     border-radius: unset;
   }
+}
+
+#xgo-type--images:fullscreen {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: unset;
+}
+
+#xgo-type--images::backdrop {
+  background-color: rgba(0, 0, 0, 0.85);
 }
 
 /***** Types *****/
