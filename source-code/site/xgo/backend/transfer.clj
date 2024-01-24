@@ -34,9 +34,10 @@
 ;; -----------------------------------------------------------------------------
 
 (def models-projection
-    {:projection #:model{:name      1
-                         :types     1
-                         :thumbnail 1}})
+    {:projection #:model{:name        1
+                         :types       1
+                         :thumbnail   1
+                         :description 1}})
 
 (defn transfer-models-f
   [request]
